@@ -8,5 +8,7 @@ markdown 博客 wiki 系统
 
 ## 知识清单
 
++ IDE
+  +  [eclipse 配置.md](IDE/eclipse 配置.md) 
 + other
   +  [LDAP 知识收集.md](other/LDAP 知识收集.md) 
