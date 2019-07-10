@@ -8,3 +8,5 @@ markdown 博客 wiki 系统
 
 ## 知识清单
 
++ other
+  +  [LDAP 知识收集.md](other/LDAP 知识收集.md) 
