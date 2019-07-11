@@ -45,6 +45,8 @@ docker inspect - mounts 参考： [关于Docker目录挂载的总结][5.1]
 [docker container update](https://docs.docker.com/engine/reference/commandline/container_update/) 官方文档
 
 ```sh
-# 设置位启动 docker 自动启动容器
+# 设置为启动 docker 自动启动容器
 docker container update --restart=always 容器名字
+# 设置为自动 docker 不自动启动容器
+docker container update --restart=no 容器名字
 ```
