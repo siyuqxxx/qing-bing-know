@@ -35,32 +35,84 @@
 
 [LDAP服务器的概念和原理简单介绍](http://seanlook.com/2015/01/15/openldap_introduction/) - 可惜好多图片加载不出来，因此，查看下面这篇博客
 
-[LDAP基础概念](https://blog.51cto.com/407711169/1439623) - 突然找到了很多图片的出处...，关于 LDAP 的系统介绍，查看下面这篇博客
+[LDAP基础概念](https://blog.51cto.com/407711169/1439623) - 突然找到了很多图片的出处... **好文！** 
 
-[运维与LDAP（openldap）](https://blog.51cto.com/407711169/1439944)
+> 对象类（ObjectClass）是属性的集合
+>
+> 
+>
+> 每个条目 (Entry) 可以直接继承多个对象类，这样就继承了各种属性。
+>
+> 
+>
+> 对象类有三种类型：`结构类型 (Structural)`、`抽象类型 (Abstract)` 和`辅助类型 (Auxiliary)`。
+>
+> + `结构类型 (Structural)` 是最基本的类型，它规定了对象尸体的基本属性，每个条目属于且仅属于一个结构型对象类。
+> + `抽象类型(Abstract)` 可以是结构类型或其他抽象类型父类，它公国将对象属性中共性的部分组织在一起，称为其他类的模板，条目不能直接集成抽象型对象类。
+> + `辅助类型(Auxiliary)` 规定了对象实体的扩展属性。
+> + 虽然每个`条目 (Entry)`只属于一个`结构类型 (Structural)`，但可以同时属于多个`辅助类型(Auxiliary)`。
+
+[运维与LDAP（openldap）](https://blog.51cto.com/407711169/1439944) - 这是一个目录，包含了上面的这篇文章，以及一些其他的文章
 
 [LDAP Linux HOWTO](http://www.tldp.org/HOWTO/LDAP-HOWTO/index.html) - 可以可以，然而是英文的
+
+[LDAP使用说明文档](https://blog.csdn.net/u013452335/article/details/81280655)
+
+> 官方文档中说，使用的是 sladp 作为数据库
+>
+> 这篇文章中说，使用了 PostgreSQL 作为数据库
+
+[OpenLDAP：用ACL控制访问权限](http://blog.sina.com.cn/s/blog_4152a9f50100qw9w.html) - ACL 访问控制概述
+
+[OPENLDAP 访问控制](https://blog.csdn.net/xubo578/article/details/5170868) 很细腻，很接近官方文档
+
+[zTree根据LDAP树形结构数据展示到页面](https://my.oschina.net/u/3010328/blog/827346)  - 一个编码方面的介绍
+
+[几种常见的LDAP系统](https://www.lijiaocn.com/技巧/2017/04/01/ldap.html) - 以用的
+
+[rfc4510 LDAP: Technical Specification Road Map, June 2006](http://www.rfc-editor.org/info/rfc4510)
+
+[rfc4511 LDAP: The Protocol, June 2006](http://www.rfc-editor.org/info/rfc4511)
+
+[rfc4512 LDAP: Directory Information Models, June 2006](http://www.rfc-editor.org/info/rfc4512)
+
+[rfc4513 LDAP: Authentication Methods and Security Mechanisms, June 2006](http://www.rfc-editor.org/info/rfc4513)
+
+[rfc4514 LDAP: String Representation of Distinguished Names](http://www.rfc-editor.org/info/rfc4514)
+
+[rfc4515 LDAP: String Representation of Search Filters](http://www.rfc-editor.org/info/rfc4515)
+
+[rfc4516 LDAP: Uniform Resource Locator](http://www.rfc-editor.org/info/rfc4516)
+
+[rfc4517 LDAP: Syntaxes and Matching Rules](http://www.rfc-editor.org/info/rfc4517)
+
+[rfc4518 LDAP: Internationalized String Preparation](http://www.rfc-editor.org/info/rfc4518)
+
+[rfc4519 LDAP: Schema for User Applications](http://www.rfc-editor.org/info/rfc4519) 这个标准 (RFC-4195) 准确的定义了各种 ldap 中的所略语
+
+[LDIF修改ldap记录或配置示例](http://seanlook.com/2015/01/22/openldap_ldif_example/) 引用的文章很给力，英文的
 
 
 ## 缩略词字典
 
-| 层级  | 属性 | 全名                   | 描述            | 备注                             |
-| ----- | ---- | ---------------------- | --------------- | -------------------------------- |
-| 1     | c    | country Name           | 国家            |                                  |
-| 2     | o    | organization           | 组织 / 公司     |                                  |
-| 2     | dc   | domain Component       | 域名            | (哪一颗树)                       |
-| 3     | ou   | organizationalUnitName | 组织单元 / 部门 | (哪一个分支)                     |
-| 4     | sn   | surname                | 真实名称        | 必要属性                         |
-| 4     | cn   | commonName             | 常用名称        | 必要属性                         |
-|       | uid  | userid                 |                 |                                  |
-|       |      |                        |                 |                                  |
-| other | dn   | Distinguished Name     |                 | 描述具体条目所处树形结构的全路径 |
+| 层级  | 属性 | 全名                         | 描述            | 备注                                 |
+| ----- | ---- | ---------------------------- | --------------- | ------------------------------------ |
+| 1     | c    | country Name                 | 国家            |                                      |
+| 2     | o    | organization                 | 组织 / 公司     |                                      |
+| 2     | dc   | domain Component             | 域名            | (哪一颗树)                           |
+| 3     | ou   | organizationalUnitName       | 组织单元 / 部门 | (哪一个分支)                         |
+| 4     | sn   | surname                      | 真实名称        | 必要属性                             |
+| 4     | cn   | commonName                   | 常用名称        | 必要属性                             |
+|       | uid  | userid                       |                 | 用户id                               |
+|       |      |                              |                 |                                      |
+| other | dn   | Distinguished Name           | 唯一标识        | 描述具体条目所处树形结构的**全路径** |
+| other | rdn  | relative distinguished names | 相对唯一表示    | **每一段路径**                       |
 
 ## LDAP 客户端
 
-| 名称            | 类型          | 备注                                     |
-| --------------- | ------------- | ---------------------------------------- |
-| phpLDAPadmin    | web           |                                          |
-| LDAP admin tool | linux         | [官网](http://www.ldapbrowserlinux.com/) |
-| JXplorer        | windows linux | [官网](http://www.jxplorer.org/)         |
+| 名称            | 类型          | 备注                                                         |
+| --------------- | ------------- | ------------------------------------------------------------ |
+| phpLDAPadmin    | web           |                                                              |
+| LDAP admin tool | windows linux | [windows](http://www.ldapbrowserwindows.com/) \| [linux](http://www.ldapbrowserlinux.com/) |
+| JXplorer        | windows linux | [官网](http://www.jxplorer.org/)                             |
 
