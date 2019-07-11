@@ -29,6 +29,13 @@ docker run --name ldap-server -d \
 	osixia/openldap:1.2.4
 ```
 
+此配置的 admin 账户：
+
+| 字段     | 值                         |
+| -------- | -------------------------- |
+| Login DN | cn=admin,dc=example,dc=org |
+| Password | admin                      |
+
 ## phpLDAPadmin
 
 [github/osixia/docker-phpLDAPadmin](https://github.com/osixia/docker-phpLDAPadmin) ldap-web-client
