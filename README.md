@@ -8,6 +8,8 @@ markdown 博客 wiki 系统
 
 ## 知识清单
 
++ activiti
+  +  [activiti 6 + spring boot 1.5.md](activiti/activiti 6 + spring boot 1.5.md) 
 + IDE
   +  [eclipse 配置.md](IDE/eclipse 配置.md) 
 + linux
