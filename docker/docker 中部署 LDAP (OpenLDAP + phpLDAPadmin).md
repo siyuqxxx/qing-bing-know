@@ -54,3 +54,5 @@ docker run --name ldap-web-client -d \
 [docker 搭建 OpenLDAP](https://www.jianshu.com/p/7f0ab0845066)
 
 [LDAP Browser For Linux](http://www.ldapbrowserlinux.com/) linux 下的 ldap 客户端
+
+[LDAP Browser For Windows](http://www.ldapbrowserwindows.com/) windows 下的 ldap 客户端
