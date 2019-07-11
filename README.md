@@ -12,6 +12,7 @@ markdown 博客 wiki 系统
   + [activiti 6 + spring boot 1.5.md](activiti/activiti 6 + spring boot 1.5.md) 
 + docker
   + [docker 中部署 LDAP (OpenLDAP + phpLDAPadmin).md](docker/docker 中部署 LDAP (OpenLDAP + phpLDAPadmin).md)
+  + [docker 中部署应用.md](docker/docker 中部署应用.md) 
 + IDE
   +  [eclipse 配置.md](IDE/eclipse 配置.md) 
 + linux
