@@ -33,16 +33,34 @@
 
 [OpenLDAP Software Administrator's Guides](http://www.openldap.org/doc) - 2.X 版本的官方手册
 
+[LDAP服务器的概念和原理简单介绍](http://seanlook.com/2015/01/15/openldap_introduction/) - 可惜好多图片加载不出来，因此，查看下面这篇博客
+
+[LDAP基础概念](https://blog.51cto.com/407711169/1439623) - 突然找到了很多图片的出处...，关于 LDAP 的系统介绍，查看下面这篇博客
+
+[运维与LDAP（openldap）](https://blog.51cto.com/407711169/1439944)
+
+[LDAP Linux HOWTO](http://www.tldp.org/HOWTO/LDAP-HOWTO/index.html) - 可以可以，然而是英文的
+
+
 ## 缩略词字典
 
-| 层级  | 缩写 | 全拼               | 翻译            | 备注                             |
-| ----- | ---- | ------------------ | --------------- | -------------------------------- |
-| 1     | c    | country Name       | 国家            |                                  |
-| 2     | o    | organization       | 组织 / 公司     |                                  |
-| 3     | ou   | organization unit  | 组织单元 / 部门 | （哪一个分支）                   |
-| 2     | dc   | domain Component   | 域名            | (哪一颗树)                       |
-| 4     | sn   | suer name          | 真实名称        | 必要属性                         |
-| 4     | cn   | common name        | 常用名称        | 必要属性                         |
-|       | uid  | userid             |                 |                                  |
-|       |      |                    |                 |                                  |
-| other | dn   | Distinguished Name |                 | 描述具体条目所处树形结构的全路径 |
+| 层级  | 属性 | 全名                   | 描述            | 备注                             |
+| ----- | ---- | ---------------------- | --------------- | -------------------------------- |
+| 1     | c    | country Name           | 国家            |                                  |
+| 2     | o    | organization           | 组织 / 公司     |                                  |
+| 2     | dc   | domain Component       | 域名            | (哪一颗树)                       |
+| 3     | ou   | organizationalUnitName | 组织单元 / 部门 | (哪一个分支)                     |
+| 4     | sn   | surname                | 真实名称        | 必要属性                         |
+| 4     | cn   | commonName             | 常用名称        | 必要属性                         |
+|       | uid  | userid                 |                 |                                  |
+|       |      |                        |                 |                                  |
+| other | dn   | Distinguished Name     |                 | 描述具体条目所处树形结构的全路径 |
+
+## LDAP 客户端
+
+| 名称            | 类型          | 备注                                     |
+| --------------- | ------------- | ---------------------------------------- |
+| phpLDAPadmin    | web           |                                          |
+| LDAP admin tool | linux         | [官网](http://www.ldapbrowserlinux.com/) |
+| JXplorer        | windows linux | [官网](http://www.jxplorer.org/)         |
+
