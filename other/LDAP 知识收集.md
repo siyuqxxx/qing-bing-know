@@ -90,7 +90,23 @@
 
 [rfc4519 LDAP: Schema for User Applications](http://www.rfc-editor.org/info/rfc4519) 这个标准 (RFC-4195) 准确的定义了各种 ldap 中的所略语
 
-[LDIF修改ldap记录或配置示例](http://seanlook.com/2015/01/22/openldap_ldif_example/) 引用的文章很给力，英文的
+[LDIF修改ldap记录或配置示例](http://seanlook.com/2015/01/22/openldap_ldif_example/) 引用的文章可以，but 英文的
+
+[LDAP服务器中的rootDSE概念](http://blog.chinaunix.net/uid-20503928-id-3577591.html)
+
+> DSA=Directory System Agent, 翻译过来就是目录系统代理
+>
+> DSE=DSA Specific Entry， 翻译过来就是目录系统中的特定条目或者记录项，是一个本地目录服务器的控制条目。它不是LDAP命名空间的一部分，rootDSE的目的就是提供关于directory Server的本身的数据。每个Directory Server都有自己的rootDSE信息，是不完全一致的。一般来说rootDSE的信息都是对所有用可读的。
+>
+> rootDSE包含下面的一些信息:
+>
+>
+> + 厂商/供应商=Vendor
+> + 服务器支持的命名上下文=naming contexts
+> + 服务器支持的请求控制=request control
+> + 支持的SASL机制
+> + 支持的功能
+> + Schema位置等等信息
 
 
 ## 缩略词字典
