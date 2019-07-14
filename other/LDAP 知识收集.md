@@ -108,6 +108,14 @@
 > + 支持的功能
 > + Schema位置等等信息
 
+[OpenLDAP2.4管理员指南]([http://wiki.jabbercn.org/index.php/OpenLDAP2.4%E7%AE%A1%E7%90%86%E5%91%98%E6%8C%87%E5%8D%97#Syncrepl.E4.BB.A3.E7.90.86](http://wiki.jabbercn.org/index.php/OpenLDAP2.4管理员指南#Syncrepl.E4.BB.A3.E7.90.86))
+
+[在LDAP目录树中怎么组织数据](http://blog.sina.com.cn/s/blog_5384e78b0100eyg6.html)
+
+[设计LDAP目录树](https://blog.csdn.net/liuzh501448/article/details/1572844)
+
+[Linux/UNIX OpenLDAP实战指南 (郭大勇著)完整pdf扫描版[97MB]](https://www.jb51.net/books/584400.html) - 下载码：7pmx
+
 
 ## 缩略词字典
 
