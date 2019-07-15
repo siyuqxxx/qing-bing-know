@@ -116,6 +116,16 @@
 
 [Linux/UNIX OpenLDAP实战指南 (郭大勇著)完整pdf扫描版[97MB]](https://www.jb51.net/books/584400.html) - 下载码：7pmx
 
+[请教：如何用LDAP实现软件的操作权限管理](http://bbs.chinaunix.net/thread-498490-1-1.html)
+
+[APACHE + LDAP 的权限认证配置方法(转)](https://wise007.iteye.com/blog/203172)
+
+> 一个不错的方案，关键摘要如下：
+>
+> 对用户通过“组(groups)”进行管理，对于需要权限控制的目录， 则通过“组”进行控制。
+
+[OpenLDAP 图形化管理](https://blog.51cto.com/wzlinux/1837363)
+
 
 ## 缩略词字典
 
