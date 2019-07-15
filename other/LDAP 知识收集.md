@@ -126,8 +126,13 @@
 
 [OpenLDAP 图形化管理](https://blog.51cto.com/wzlinux/1837363)
 
+[OpenLDAP限制用户登录主机](https://blog.51cto.com/fengwan/1846879)
+
+[nginx 引入LDAP验证](https://blog.51cto.com/duyunlong/1896137)
 
 ## 缩略词字典
+
+核心参考资料：[rfc4519 LDAP: Schema for User Applications](http://www.rfc-editor.org/info/rfc4519) 这个标准 (RFC-4195) 准确的定义了各种 ldap 中的所略语
 
 | 层级  | 属性 | 全名                         | 描述            | 备注                                 |
 | ----- | ---- | ---------------------------- | --------------- | ------------------------------------ |
