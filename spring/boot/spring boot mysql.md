@@ -2,7 +2,15 @@
 
 [TOC]
 
-[spring-boot中初始化sql讲解及分析](https://blog.csdn.net/yinbucheng/article/details/80164395) 这篇讲解了源码，说明，springboot 时如何通过配置文件初始化数据到数据库中的
+[spring-boot中初始化sql讲解及分析](https://blog.csdn.net/yinbucheng/article/details/80164395)
+
+> 这篇讲解了源码，说明，springboot 时如何通过配置文件初始化数据到数据
+>
+> 分别介绍了 springboot 1.x 和 2.x 的加载方式
+
+[Springboot（二十）启动时数据库初始化spring.datasource/spring.jpa](https://blog.csdn.net/u012326462/article/details/82080812)
+
+> 更精细的讲解了application.yml 中 spring.datasource 下的参数配置
 
 springboot 如何连接 mysql 数据库
 
