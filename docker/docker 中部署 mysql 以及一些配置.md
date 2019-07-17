@@ -47,6 +47,8 @@ grant all privileges on *.* to test@localhost identified by 'PASSWORD';
 ```sh
 # 创建用户同时授权
 grant all privileges on *.* to test@'192.168.0.%' identified by 'PASSWORD';
+# 在 linux 下安装 docker, 并在 linux 下使用
+grant all privileges on *.* to test@'172.17.0.%' identified by 'PASSWORD';
 ```
 
 [各个平台的mysql重启命令](https://www.cnblogs.com/adolfmc/p/5497974.html)
