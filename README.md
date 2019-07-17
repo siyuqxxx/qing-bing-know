@@ -20,6 +20,7 @@ markdown 博客 wiki 系统
 + IDE
   +  [eclipse 配置.md](IDE/eclipse 配置.md) 
 + linux
+  +   [Centos7 部署 nexus 3.15.x 与配置.md](linux\Centos7 部署 nexus 3.15.x 与配置.md) 
   +   [ubuntu 配置.md](linux/ubuntu 配置.md) 
 + other
   +  [LDAP 知识收集.md](other/LDAP 知识收集.md)  
