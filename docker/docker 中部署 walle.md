@@ -96,7 +96,7 @@ volumes:
 
 如果遇见一下错误，请 docker-compose stop 之后再docker-compose up 一次就可以了，这是mysql没有初始化完，就启动了python-server
 
-
+![1563352621019](imgs/1563352621019.png)
 
 # 开始使用
 
