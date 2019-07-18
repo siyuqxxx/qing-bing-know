@@ -1,4 +1,4 @@
-# swagger + spring booy
+# swagger + spring boot
 
 [TOC]
 
