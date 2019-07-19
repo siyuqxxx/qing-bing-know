@@ -4,13 +4,15 @@
 
 ## 快捷键
 
-| 功能       | 快捷键                                     | 参考资料                                                     |
-| ---------- | ------------------------------------------ | ------------------------------------------------------------ |
-| 代码格式化 | `ctrl` + `shift` + `f`                     |                                                              |
-| 注释代码   | `ctrl` + `/`   或   `ctrl` + `shift` + `c` | [eclipse中java的单行注释、多行注释、文档注释的快捷键](https://blog.csdn.net/qq_41101701/article/details/81866705) |
-| 倒入 jar   | `ctrl`+`shift`+`o`                         | [eclipse导入类中所需要的jar包的快捷键](https://blog.csdn.net/wzn1054162229/article/details/80703560) |
-| 类名称联想 | `alt`+`/`                                  |                                                              |
-| 调用关系   | `Ctrl`+`Alt`+`H`                           |                                                              |
+| 功能           | 快捷键                                              | 参考资料                                                     |
+| -------------- | --------------------------------------------------- | ------------------------------------------------------------ |
+| 代码格式化     | `ctrl` + `shift` + `f`                              |                                                              |
+| 注释代码       | `ctrl` + `/`   或   `ctrl` + `shift` + `c`          | [eclipse中java的单行注释、多行注释、文档注释的快捷键](https://blog.csdn.net/qq_41101701/article/details/81866705) |
+| 倒入 jar       | `ctrl`+`shift`+`o`                                  | [eclipse导入类中所需要的jar包的快捷键](https://blog.csdn.net/wzn1054162229/article/details/80703560) |
+| 类名称联想     | `alt`+`/`                                           |                                                              |
+| 调用关系       | `Ctrl`+`Alt`+`H`                                    |                                                              |
+| 字母大小写转换 | `ctrl`+`shift`+`x` 转大写 `ctrl`+`shift`+`y` 转小写 | [eclipse中字母大小写转换快捷键](https://blog.csdn.net/ocean20/article/details/2447157) |
+|                |                                                     |                                                              |
 
 
 
