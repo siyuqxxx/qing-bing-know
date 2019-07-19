@@ -2,10 +2,15 @@
 
 [TOC]
 
+# 参考资料
+
 [SpringBoot 整合mybatis (手写mapper.xml)](https://www.jianshu.com/p/d513339980c7)
 
-
 [SpringBoot集成Mybatis中找不到Mapper层的接口](https://bbs.csdn.net/topics/392420803?page=1)
+
+[Spring Boot的事务管理注解@EnableTransactionManagement的使用](https://blog.csdn.net/u010963948/article/details/79208328)
+
+> 事物管理
 
 
 # 创建项目
