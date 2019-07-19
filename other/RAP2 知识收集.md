@@ -10,7 +10,7 @@
 
 # 安装部署
 
-后台安装
+## 后台安装
 
 vi docker-compose.yml
 
@@ -85,7 +85,7 @@ volumes:
   rap2-mysql-data:
 ```
 
-前台安装
+## 前台安装
 
 vi dockerfile
 
@@ -95,28 +95,14 @@ FROM node:8.16-alpine
 WORKDIR /opt/rap2-dolores
 EXPOSE 80
 
-COPY rap2-dolores-2.1.3 ./
-
-
-RUN sed -i 's/rap2api\.taobao\.org/rap2-delos/' src/config/config.prod.ts && \
-        npm run build && \
-        serve -s ./build -p 80
-
-CMD [ "sh" ]
-```
-
-```dockerfile
-FROM node:8.16-alpine
-
-WORKDIR /opt/rap2-dolores
-EXPOSE 80
-
-COPY rap2-dolores-2.1.3 ./
-
-
-RUN sed -i 's/rap2api\.taobao\.org/rap2-delos/' src/config/config.prod.ts && \
-        npm run build && \
-        serve -s ./build -p 80
+RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories && \
+    apk --update-cache update && apk add curl python2 make g++ && \
+      curl -OL https://github.com/thx/rap2-dolores/archive/2.1.3.tar.gz && \
+        tar zxf 2.1.3.tar.gz && \
+          mv rap2-dolores-2.1.3/* . && \
+          rm -rf 2.1.3.tar.gz rap2-dolores-2.1.3/ && \
+        sed -i 's/rap2api\.taobao\.org/rap2-delos/' src/config/config.prod.ts && \
+        npm install && npm run build && serve -s ./build -p 80
 
 CMD [ "sh" ]
 ```
