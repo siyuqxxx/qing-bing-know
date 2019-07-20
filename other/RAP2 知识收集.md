@@ -89,6 +89,8 @@ volumes:
 
 vi dockerfile
 
+### alpine
+
 ```dockerfile
 FROM node:8.16-alpine
 
@@ -107,12 +109,62 @@ RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositorie
 CMD [ "sh" ]
 ```
 
-sudo docker build -t="qsy/rap2-dolors" .
 
-```
-docker run --name dolors -it \
-	--network rap2_default \
-    --rm \
-	qsy/rap2-dolors sh
+
+### debian
+
+```dockerfile
+FROM node:8.16-stretch
+
+ENV RAP2_DOLORES   2.1.3
+WORKDIR /opt/rap2-dolores
+EXPOSE 80
+
+RUN sed -i 's/deb.debian.org/mirrors.aliyun.com/' /etc/apt/sources.list \
+  && apt update && apt upgrade -y && apt install xsel -y \
+  && curl -OL https://github.com/thx/rap2-dolores/archive/2.1.3.tar.gz \
+  && tar zxf 2.1.3.tar.gz \
+  && mv rap2-dolores-2.1.3/* . && rm -rf 2.1.3.tar.gz rap2-dolores-2.1.3/ \
+  && sed -i 's/rap2api.taobao.org/rap2-delos:8080/' src/config/config.prod.ts \
+  && sed -i 's/127.0.0.1/rap2-delos/' config.dev.ts \
+  && npm install -g --unsafe-perm serve node-sass \
+  && npm install && npm run build
+
+ENTRYPOINT ["serve", "-s", "./build", "-p", "80"]
 ```
 
+sudo docker build -t="qsy/rap2-dolores:1.1" .
+
+```sh
+docker run --name dolores -it \
+  -p 40011:80 \
+  -p 40012:3000 \
+  --network rap2_default \
+  qsy/rap2-dolores sh
+```
+
+```sh
+FROM qsy/rap2-dolores:1.0
+
+ENTRYPOINT ["serve -s ./build -p 80"]
+```
+
+```sh
+docker run --name temp -d \
+  -p 40013:80 \
+  -p 40014:3000 \
+  --network rap2_default \
+  qsy/rap2-dolores:1.1
+```
+
+[接口文档管理神器RAP2安装和部署](https://www.cnblogs.com/operationhome/p/10038469.html)
+
+> ```sh
+> # 运行 
+> serve -s ./build -p 80
+> -p 为指定端口
+> # 后台运行
+> nohup  serve -s ./build -p 80  &
+> ```
+
+[Docker搭建Rap2](https://www.liangzl.com/get-article-detail-125295.html)
