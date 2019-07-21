@@ -94,19 +94,21 @@ vi dockerfile
 ```dockerfile
 FROM node:8.16-alpine
 
+ENV RAP2_DOLORES 2.1.3
 WORKDIR /opt/rap2-dolores
 EXPOSE 80
 
-RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories && \
-    apk --update-cache update && apk add curl python2 make g++ && \
-      curl -OL https://github.com/thx/rap2-dolores/archive/2.1.3.tar.gz && \
-        tar zxf 2.1.3.tar.gz && \
-          mv rap2-dolores-2.1.3/* . && \
-          rm -rf 2.1.3.tar.gz rap2-dolores-2.1.3/ && \
-        sed -i 's/rap2api\.taobao\.org/rap2-delos/' src/config/config.prod.ts && \
-        npm install && npm run build && serve -s ./build -p 80
+RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories \
+  && apk --update-cache update && apk add curl python2 make g++ \
+  && curl -OL https://github.com/thx/rap2-dolores/archive/2.1.3.tar.gz \
+  && tar zxf 2.1.3.tar.gz \
+  && mv rap2-dolores-2.1.3/* . && rm -rf 2.1.3.tar.gz rap2-dolores-2.1.3/ \
+  && sed -i 's/rap2api.taobao.org/rap2-delos:8080/' src/config/config.prod.ts \
+  && sed -i 's/127.0.0.1/rap2-delos/' src/config/config.dev.ts \
+  && npm install -g --unsafe-perm serve node-sass --registry=http://registry.npm.taobao.org \
+  && npm install && npm run build
 
-CMD [ "sh" ]
+ENTRYPOINT ["serve", "-s", "./build", "-p", "80"]
 ```
 
 
@@ -126,14 +128,14 @@ RUN sed -i 's/deb.debian.org/mirrors.aliyun.com/' /etc/apt/sources.list \
   && tar zxf 2.1.3.tar.gz \
   && mv rap2-dolores-2.1.3/* . && rm -rf 2.1.3.tar.gz rap2-dolores-2.1.3/ \
   && sed -i 's/rap2api.taobao.org/rap2-delos:8080/' src/config/config.prod.ts \
-  && sed -i 's/127.0.0.1/rap2-delos/' config.dev.ts \
+  && sed -i 's/127.0.0.1/rap2-delos/' src/config/config.dev.ts \
   && npm install -g --unsafe-perm serve node-sass \
   && npm install && npm run build
 
 ENTRYPOINT ["serve", "-s", "./build", "-p", "80"]
 ```
 
-sudo docker build -t="qsy/rap2-dolores:1.1" .
+sudo docker build -t="qsy/rap2-dolores:2.0" .
 
 ```sh
 docker run --name dolores -it \
