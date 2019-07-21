@@ -81,6 +81,18 @@ services:
       MYSQL_DATABASE: "rap2"
       MYSQL_USER: "root"
       MYSQL_PASSWORD: ""
+  dolores:
+    container_name: rap2-dolores
+    image: qsy/rap2-dolores:2.0
+    environment:
+      - NODE_ENV=production
+    privileged: true 
+    links:
+      - delos
+    depends_on:
+      - delos
+    ports:
+      - "40009:80"
 volumes:
   rap2-mysql-data:
 ```
