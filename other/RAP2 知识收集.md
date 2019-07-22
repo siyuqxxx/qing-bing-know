@@ -68,8 +68,8 @@ services:
     container_name: rap2-mysql
     image: mysql:5.7.22
     # expose 33306 to client (navicat)
-    #ports:
-    #   - 33306:3306
+    ports:
+      - 40009:3306
     volumes:
       # change './docker/mysql/volume' to your own path
       # WARNING: without this line, your data will be lost.
@@ -85,14 +85,16 @@ services:
     container_name: rap2-dolores
     image: qsy/rap2-dolores:2.0
     environment:
-      - NODE_ENV=production
-    privileged: true 
+      - NODE_ENV=development
+    privileged: true
+    command: /bin/sh -c 'npm run dev'
     links:
       - delos
     depends_on:
       - delos
     ports:
-      - "40009:80"
+      - "40010:80"
+      - "40011:3000"
 volumes:
   rap2-mysql-data:
 ```
@@ -115,12 +117,12 @@ RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositorie
   && curl -OL https://github.com/thx/rap2-dolores/archive/2.1.3.tar.gz \
   && tar zxf 2.1.3.tar.gz \
   && mv rap2-dolores-2.1.3/* . && rm -rf 2.1.3.tar.gz rap2-dolores-2.1.3/ \
-  && sed -i 's/rap2api.taobao.org/rap2-delos:8080/' src/config/config.prod.ts \
-  && sed -i 's/127.0.0.1/rap2-delos/' src/config/config.dev.ts \
+  && sed -i 's/rap2api.taobao.org/10.20.1.51:40008/' src/config/config.prod.ts \
+  && sed -i 's/127.0.0.1:8080/10.20.1.51:40008/' src/config/config.dev.ts \
   && npm install -g --unsafe-perm serve node-sass --registry=http://registry.npm.taobao.org \
   && npm install && npm run build
 
-ENTRYPOINT ["serve", "-s", "./build", "-p", "80"]
+CMD ["serve", "-s", "./build", "-p", "80"]
 ```
 
 
