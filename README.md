@@ -29,10 +29,11 @@ markdown 博客 wiki 系统
   +     [Centos7 部署 nexus 3.15.x 与配置.md](linux\Centos7 部署 nexus 3.15.x 与配置.md) 
   +     [ubuntu 配置.md](linux/ubuntu 配置.md) 
 + other
-  +    [LDAP 知识收集.md](other/LDAP 知识收集.md)  
-  +     [npm 知识收集.md](other/npm 知识收集.md) 
-  +     [RAP2 知识收集.md](other/RAP2 知识收集.md) 
-  +    [RFC 4512 部分中文翻译.md](other/RFC 4512 部分中文翻译.md)
+  +  [在关系型数据库中存储树.md](other/在关系型数据库中存储树.md) 
+  + [LDAP 知识收集.md](other/LDAP 知识收集.md)  
+  + [npm 知识收集.md](other/npm 知识收集.md) 
+  + [RAP2 知识收集.md](other/RAP2 知识收集.md) 
+  + [RFC 4512 部分中文翻译.md](other/RFC 4512 部分中文翻译.md)
 + spring
   + boot
     +   [spring boot 知识收集.md](spring/boot/spring boot 知识收集.md) 
