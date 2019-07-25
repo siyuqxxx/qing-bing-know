@@ -8,14 +8,12 @@
 
 [SpringBoot集成Mybatis中找不到Mapper层的接口](https://bbs.csdn.net/topics/392420803?page=1)
 
+
+# 事务管理
+
+[透彻的掌握 Spring 中@transactional 的使用](https://www.ibm.com/developerworks/cn/java/j-master-spring-transactional-use/)
+
 [Spring Boot的事务管理注解@EnableTransactionManagement的使用](https://blog.csdn.net/u010963948/article/details/79208328)
-
-> 事物管理
-
-
-# 创建项目
-
-idea - new project - spring initializr
 
 # 问题解决
 
