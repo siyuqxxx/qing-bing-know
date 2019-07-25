@@ -17,3 +17,10 @@
 [初入spring boot（八 ）Spring Data REST](https://www.cnblogs.com/kevin443/p/6748616.html)
 
 > Spring Data JPA是基于Spring Data 的Repository之上，可以将Repository自动输出为REST资源。目前Spring Data REST支持将Spring Data JPA、Spring Data MongoDB、Spring Data Neo4j、Spring Data Gemfire以及Spring Data Cassandra的Repository自动转换成REST服务。
+
+# 状态码
+
+[HTTP 304状态码的详细讲解](https://blog.csdn.net/huwei2003/article/details/70139062)
+
+> 常见状态码
+
