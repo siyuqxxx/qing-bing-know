@@ -15,6 +15,14 @@
 
 [Spring Boot的事务管理注解@EnableTransactionManagement的使用](https://blog.csdn.net/u010963948/article/details/79208328)
 
+# 日志
+
+[SpringBoot Logging配置](https://www.liangzl.com/get-article-detail-6974.html)
+
+[springboot在yml内的日志配置](https://www.oschina.net/question/3536851_2281935)
+
+> [application.properties <--> application.yml 互转工具](http://www.toyaml.com/  )
+
 # 问题解决
 
 [jdk9+ spring5+ 报反射错误的屏蔽方法](https://my.oschina.net/u/698683/blog/1922830)
