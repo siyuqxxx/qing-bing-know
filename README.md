@@ -11,7 +11,6 @@ markdown 博客 wiki 系统
 + activiti
   +   [activiti 6 + spring boot 1.5.md](activiti/activiti 6 + spring boot 1.5.md) 
 + docker
-  +   [安装 docker compose.md](docker/安装 docker compose.md) 
   +    [apline 知识收集.md](docker/apline 知识收集.md) 
   +   [docker 的常用配置.md](docker/docker 的常用配置.md) 
   +   [docker 下的常用操作.md](docker\docker 下的常用操作.md) 
@@ -19,6 +18,7 @@ markdown 博客 wiki 系统
   +   [docker 中部署 mysql 以及一些配置.md](docker/docker 中部署 mysql 以及一些配置.md) 
   +   [docker 中部署 walle.md](docker/docker 中部署 walle.md) 
   +   [docker 中部署应用.md](docker/docker 中部署应用.md) 
+  +    [docker compose 知识收集.md](docker\docker compose 知识收集.md) 
 + IDE
   +    [eclipse 配置.md](IDE/eclipse 配置.md) 
   +     [idea 配置.md](IDE\idea 配置.md) 
