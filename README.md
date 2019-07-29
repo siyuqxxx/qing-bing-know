@@ -29,6 +29,7 @@ markdown 博客 wiki 系统
   +  [java stream.md](java/java stream.md) 
 + linux
   +     [Centos7 部署 nexus 3.15.x 与配置.md](linux\Centos7 部署 nexus 3.15.x 与配置.md) 
+  +      [CentOS7 安装 git 最新版本.md](linux\CentOS7 安装 git 最新版本.md) 
   +     [ubuntu 配置.md](linux/ubuntu 配置.md) 
 + other
   +  [在关系型数据库中存储树.md](other/在关系型数据库中存储树.md) 
