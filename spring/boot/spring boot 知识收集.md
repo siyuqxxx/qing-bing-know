@@ -23,6 +23,20 @@
 
 > [application.properties <--> application.yml 互转工具](http://www.toyaml.com/  )
 
+# 校验
+
+[Spring Boot 进行Bean Validate和Method Validate](https://blog.csdn.net/adsadadaddadasda/article/details/80831832)
+
+[使用JSR 303和AOP简化你的接口开发](https://blog.csdn.net/chaijunkun/article/details/44854071)
+
+[一起来学SpringBoot | 第十九篇：轻松搞定数据验证（一）](http://www.spring4all.com/article/1224)
+
+[一起来学SpringBoot | 第二十篇：轻松搞定数据验证（二）](http://www.spring4all.com/article/1225)
+
+[一起来学SpringBoot | 第二十一篇：轻松搞定数据验证（三）](http://www.spring4all.com/article/1228)
+
+
+
 # 问题解决
 
 [jdk9+ spring5+ 报反射错误的屏蔽方法](https://my.oschina.net/u/698683/blog/1922830)
