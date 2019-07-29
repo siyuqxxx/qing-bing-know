@@ -13,3 +13,9 @@
 [restController,controller,controllerAdvice,restControllerAdvice](https://www.jianshu.com/p/8f96c2037f9b)
 
 > 排版实在不友好，内容还可以
+
+# @Validated + 统一异常处理
+
+[sping4.3+ hibernate-validator@Validated注解失效最终解决方法](https://my.oschina.net/u/3293842/blog/1922735)
+
+[一起来学SpringBoot | 第十八篇：轻松搞定全局异常](http://www.spring4all.com/article/1211)
