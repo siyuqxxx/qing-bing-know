@@ -106,7 +106,7 @@ nexus 默认的镜像仓库访问的是：https://repo1.maven.org/maven2/
 
 ![1563326005475](imgs/1563326005475.png)
 
-+ `Role ID` / `Role name`: nx-deploy
++ `Role ID` / `Role name`: mvn-deploy
 + `Role description`: maven deploy
 + `Privileges`: 
   + nx-component-upload // 允许手动上传 jar 到仓库中
