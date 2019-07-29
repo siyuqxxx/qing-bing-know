@@ -11,6 +11,7 @@
 > + RESTful api 版本管理
 > + 统一异常处理 
 > + jpa 的使用
+> + 参数校验
 
 [API Restful接口开发 版本控制](https://blog.csdn.net/u010598360/article/details/81275291)
 
