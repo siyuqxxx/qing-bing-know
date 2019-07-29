@@ -99,6 +99,22 @@ volumes:
   rap2-mysql-data:
 ```
 
+注意：
+
+```sh
+# 首次启动
+docker-compose up
+# 数据库初始完毕以后，
+ctrl+c 停止docker-compose
+# 修改 docker-compose.yml
+# 文档中说 只有第一次可以使用 s/sleep 30; node scripts/init; 后面需要去掉这个命令
+sed -i 's/sleep 30; node scripts/init; //'
+# 再次启动
+docker-compose up -d
+```
+
+
+
 ## 前台安装
 
 vi dockerfile
