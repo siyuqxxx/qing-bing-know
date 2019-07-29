@@ -14,6 +14,7 @@ markdown 博客 wiki 系统
   +    [apline 知识收集.md](docker/apline 知识收集.md) 
   +   [docker 的常用配置.md](docker/docker 的常用配置.md) 
   +   [docker 下的常用操作.md](docker\docker 下的常用操作.md) 
+  +    [docker 中部署 jenkins.md](docker\docker 中部署 jenkins.md) 
   +   [docker 中部署 LDAP (OpenLDAP + phpLDAPadmin).md](docker/docker 中部署 LDAP (OpenLDAP + phpLDAPadmin).md)
   +   [docker 中部署 mysql 以及一些配置.md](docker/docker 中部署 mysql 以及一些配置.md) 
   +   [docker 中部署 walle.md](docker/docker 中部署 walle.md) 
