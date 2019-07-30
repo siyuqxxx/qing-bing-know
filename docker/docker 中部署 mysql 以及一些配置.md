@@ -96,4 +96,21 @@ innodb_file_per_table = 1
 ">>/etc/my.cnf
 ```
 
-参考博客: [MySQL Server参数优化 - innodb_file_per_table（独立表空间）](https://blog.csdn.net/jesseyoung/article/details/42236615)
+参考资料:
+
+ [MySQL Server参数优化 - innodb_file_per_table（独立表空间）](https://blog.csdn.net/jesseyoung/article/details/42236615)
+
+### mysql5.7支持group by
+```sh
+echo "
+# mysql5.7支持group by
+sql_mode = STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION
+">>/etc/my.cnf
+```
+
+参考资料：
+
+[mysql报错this is incompatible with sql_mode=only_full_group_by](http://www.mamicode.com/info-detail-2560516.html)
+
+[MySQL 5.7默认ONLY_FULL_GROUP_BY语义介绍](https://www.cnblogs.com/xzjf/p/8466858.html)
+
