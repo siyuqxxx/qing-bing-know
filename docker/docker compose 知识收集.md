@@ -36,3 +36,7 @@ services.{service_name}.restart 可用参数
 > restart: on-failure
 > restart: unless-stopped
 > ```
+
+# 其他
+
+[docker学习(八) docker-compose 启动一个springboot 连接mysql](https://blog.csdn.net/u011943534/article/details/81392993)
