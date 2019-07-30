@@ -128,7 +128,7 @@ ENV RAP2_DOLORES 2.1.3
 WORKDIR /opt/rap2-dolores
 EXPOSE 80
 
-RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories \
+RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.tuna.tsinghua.edu.cn/g' /etc/apk/repositories \
   && apk --update-cache update && apk add curl python2 make g++ \
   && curl -OL https://github.com/thx/rap2-dolores/archive/2.1.3.tar.gz \
   && tar zxf 2.1.3.tar.gz \
@@ -141,7 +141,7 @@ RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositorie
 CMD ["serve", "-s", "./build", "-p", "80"]
 ```
 
-
+[alpine mirrors](https://mirrors.alpinelinux.org/)
 
 ### debian
 
