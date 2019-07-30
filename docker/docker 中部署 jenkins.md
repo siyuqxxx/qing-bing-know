@@ -31,6 +31,7 @@ services:
     image: jenkinsci/blueocean:1.17.0
     container_name: jenkins
     hostname: jenkins
+    user: root
     ports:
       - "40001:8080"
       - "40002:5000"
@@ -38,9 +39,12 @@ services:
       - jenkins-data:/var/jenkins_home
       - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /usr/local/bin/docker:/bin/docker:ro
     restart: "no"
 volumes:
   jenkins-data:
+
 ```
 
 [Compose file version 3 reference](https://docs.docker.com/compose/compose-file/) - docker-compose 官方说明文档
@@ -92,3 +96,56 @@ vi /var/jenkins_home/hudson.model.UpdateCenter.xml
   </site>
 ```
 
+# 部署在 docker 中的 jenkins 使用宿主机的 docker
+
+[使用Jenkins MultiBranch实现Docker build镜像并push到DockerHub](https://blog.csdn.net/haiyanggeng/article/details/85344103)
+
+> docker run 参数
+>
+> ```sh
+> docker run --name jenkins -d \
+>   -p 8080:8080 -p 50000:50000 \
+>   -v ~/workspace/jenkins_home:/var/jenkins_home \
+>   -v /var/run/docker.sock:/var/run/docker.sock \
+>   -v /usr/local/bin/docker:/bin/docker \
+>   -t jenkinsci/jenkins:2.150.1
+> ```
+>
+> 使用 root 登陆 jenkins 容器，并赋予执行权限
+>
+> ```sh
+> docker exec -it -u root jenkins sh
+> chmod +x /var/run/docker.sock
+> chown jenkins:jenkins /var/run/docker.sock
+> ```
+
+[问题解决：用Docker启动Jenkins出现权限问题](https://blog.csdn.net/qq_36792209/article/details/82695750)
+
+> ##### 在docker-compose.yml文件中加入user
+
+# jenkins pileline 使用 npm 构建前端项目
+
+[jenkins使用pipeline构建nodejs应用](https://blog.csdn.net/qq_35299863/article/details/84240379)
+
+# jenkinsfile 转义字符
+
+[[Jenkins][JenkinsFile][Linux] sh 替换属性文件properties的内容](https://blog.csdn.net/weixin_42713970/article/details/86511642)
+
+> 多行，转义 `\\`
+>
+> ```jenkinsfile
+> pipeline {
+>   agent any
+>   stages {
+>     stage('configEnv') {
+>       steps {
+>         sh '''
+>           sed -i "s#^user.name=.*#user.name=用户名#g"  path/demo.properties
+>           sed -i "s#^user.password=.*#user.password=密码#g"  path/demo.properties
+>           sed -i "s#^\\"user.password\\":.*#\\"user.password\\":\\"root\\"#g"  path/otherFile
+>         '''
+>       }
+>     }
+>   }
+> }
+> ```
