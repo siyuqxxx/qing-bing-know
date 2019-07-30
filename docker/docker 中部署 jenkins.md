@@ -2,6 +2,19 @@
 
 [TOC]
 
+# 时区问题
+
+确认一下这几个文件是否存在：
+/etc/timezone
+/etc/localtime
+
+如果不存在，生成的方式如下：
+
+```sh
+echo 'Asia/Shanghai' > /etc/timezone
+rm -rf /etc/localtime && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime  // 如果时区不正确，需要使用 rm； 如果不存在，直接 cp
+```
+
 # 部署 jenkins
 
 官方操作说明 [安装Jenkins](https://jenkins.io/zh/doc/book/installing/ )
@@ -54,19 +67,6 @@ volumes:
 参考资料：
 
 [Docker版本Jenkins的使用](https://www.jianshu.com/p/0391e225e4a6)
-
-# 时区问题
-
-确认一下这几个文件是否存在：
-/etc/timezone
-/etc/localtime
-
-如果不存在，生成的方式如下：
-
-```sh
-echo 'Asia/Shanghai' > /etc/timezone
-rm -rf /etc/localtime && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime  // 如果时区不正确，需要使用 rm； 如果不存在，直接 cp
-```
 
 # 配置 git 私钥 和 公钥
 
@@ -135,17 +135,16 @@ vi /var/jenkins_home/hudson.model.UpdateCenter.xml
 >
 > ```jenkinsfile
 > pipeline {
->   agent any
->   stages {
->     stage('configEnv') {
->       steps {
->         sh '''
->           sed -i "s#^user.name=.*#user.name=用户名#g"  path/demo.properties
->           sed -i "s#^user.password=.*#user.password=密码#g"  path/demo.properties
->           sed -i "s#^\\"user.password\\":.*#\\"user.password\\":\\"root\\"#g"  path/otherFile
->         '''
->       }
->     }
+>     agent any
+>     stages {
+>        stage('configEnv') {
+>          steps {
+>            sh '''
+>              sed -i "s#^user.name=.*#user.name=用户名#g"  path/demo.properties
+>              sed -i "s#^user.password=.*#user.password=密码#g"  path/demo.properties
+>            '''
+>          }
+>        }
+>      }
 >   }
-> }
 > ```
