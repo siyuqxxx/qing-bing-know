@@ -45,7 +45,7 @@ docker run --name zentao -d \
     -e BIND_ADDRESS="false" \
     -v zentao-data:/opt/zbox/ \
     --restart=always \
-    idoop/zentao:11.4.1
+    idoop/zentao:11.5.1
 ```
 
 ### nexus
