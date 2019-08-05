@@ -25,3 +25,7 @@
 
 > 常见状态码
 
+# 报文头
+
+[Http报头Accept与Content-Type的区别](https://www.cnblogs.com/avivahe/p/5630394.html)
+
