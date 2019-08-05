@@ -14,9 +14,9 @@
 > @TableId(value = "id",type = IdType.AUTO)
 > ```
 
+[mybatis-plus的使用 ------ 进阶](https://www.jianshu.com/p/a4d5d310daf8)
 
-
-## 分页
+# 分页
 
 官方： [分页插件](https://mp.baomidou.com/guide/page.html)
 
@@ -52,10 +52,16 @@ public class MybatisPlusConfig {
 >
 > 包含 mybatis-plus generator 配置
 
-## 代码生成器
+# 代码生成器
 
 官方： 
 
 [代码生成器](https://mp.baomidou.com/guide/generator.html)
 
 [代码生成器配置](https://mp.baomidou.com/config/generator-config.htm)
+
+# 自动填充 @TableField
+
+[Mybatis-Plus公共字段自动填充注解使用说明@TableField、@Version](https://blog.csdn.net/tianmaxingkonger/article/details/84851206)
+
+[MyBatisPlus怎么忽略映射字段](https://www.cnblogs.com/yifanSJ/p/9098166.html)
