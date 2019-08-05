@@ -35,7 +35,23 @@
 
 [一起来学SpringBoot | 第二十一篇：轻松搞定数据验证（三）](http://www.spring4all.com/article/1228)
 
+# junit
 
+[MockMvc control层单元测试 参数传递问题](https://blog.csdn.net/wang_muhuo/article/details/84655577)
+
+[HTTP PUT vs HTTP PATCH in a REST API](https://www.baeldung.com/http-put-patch-difference-spring)
+
+[SpringMVC 测试 mockMVC](https://www.cnblogs.com/lyy-2016/p/6122144.html)
+
+[MockMVC - 基于RESTful风格的SpringMVC的测试](https://www.jianshu.com/p/91045b0415f0)
+
+> 好文章
+
+[Java Code Examples for org.springframework.test.web.servlet.result.MockMvcResultMatchers](https://www.programcreek.com/java-api-examples/index.php?api=org.springframework.test.web.servlet.result.MockMvcResultMatchers)
+
+> 好文章，太不错了，超级多的例子
+
+[github/json-path/JsonPath](https://github.com/json-path/JsonPath)
 
 # 问题解决
 
