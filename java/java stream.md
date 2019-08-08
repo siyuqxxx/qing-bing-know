@@ -14,7 +14,7 @@
 
 > ```java
 > userList.stream().collect(Collectors.toMap(User::getId,
->                 e -> Arrays.asList(e.getUsername()),
+>                 e -> Stream.of(e.getUsername()).collect(Collectors.toList()),
 >                 (List<String> oldList, List<String> newList) -> {
 >                     oldList.addAll(newList);
 >                     return oldList;
@@ -46,3 +46,12 @@
 [java8 stream流操作的flatMap（流的扁平化）](https://blog.csdn.net/Mark_Chao/article/details/80810030)
 
 > 案例：对给定单词列表 ["Hello","World"],你想返回列表["H","e","l","o","W","r","d"]
+>
+> ```java
+> String[] words = new String[]{"Hello","World"};
+> List<String> a = Arrays.stream(words)
+>     .map(word -> word.split(""))
+>     .flatMap(Arrays::stream)
+>     .distinct()
+>     .collect(toList());
+> ```
