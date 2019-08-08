@@ -111,7 +111,7 @@ vi /var/jenkins_home/hudson.model.UpdateCenter.xml
 >   -t jenkinsci/jenkins:2.150.1
 > ```
 >
-> 使用 root 登陆 jenkins 容器，并赋予执行权限
+> 使用 root 登陆 jenkins 容器，并赋予执行权限（此方法，宿主机重启后失效）
 >
 > ```sh
 > docker exec -it -u root jenkins sh
