@@ -55,3 +55,23 @@
 >     .distinct()
 >     .collect(toList());
 > ```
+
+[Java8 Stream使用flatMap合并List](https://blog.csdn.net/weixin_41835612/article/details/83713891)
+
+> ```java
+> /*交集*/
+>     /*[AClass(id=1, name=zhuoli1, description=haha1)]*/
+>     List<AClass> intersectResult = aClassList1.stream().filter(aClassList2::contains).collect(Collectors.toList());
+>     System.out.println(intersectResult);
+> 
+> /*并集*/
+> List<AClass> unionResult = Stream.of(aClassList1, aClassList2).flatMap(Collection::stream).distinct().collect(Collectors.toList());
+> assertEquals(unionResult.size(), 5);
+> System.out.println(unionResult);
+>  
+> /*差集*/
+> /*[AClass(id=2, name=zhuoli2, description=haha2), AClass(id=3, name=zhuoli3, description=haha3)]*/
+> List<AClass> differenceResult = aClassList1.stream().filter(x -> !aClassList2.contains(x)).collect(Collectors.toList());
+> System.out.println(differenceResult);
+> ```
+>
