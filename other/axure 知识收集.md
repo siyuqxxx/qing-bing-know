@@ -16,11 +16,19 @@
 
 [尺寸与规范](https://www.axure.com.cn/size/)
 
-文本框：
+## 组件
+
+### 文本框
 
 高度： 32px
 
 间隙： 4px
 
 距离前方 label：8px
+
+label 字体：微软雅黑
+
+label 字体大小：12PX
+
+前方 label 与 文本框剧中对齐
 
