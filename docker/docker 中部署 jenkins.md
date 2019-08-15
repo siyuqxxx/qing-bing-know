@@ -148,3 +148,64 @@ vi /var/jenkins_home/hudson.model.UpdateCenter.xml
 >      }
 >   }
 > ```
+
+# pipeline 用户输入
+
+[Jenkins Pipeline语法（上）](https://www.jianshu.com/p/18327865a38a)
+
+[Jenkins Pipeline语法（中）](https://www.jianshu.com/p/7a852d58d9a9)
+
+[Jenkins Pipeline语法（下）](https://www.jianshu.com/p/797e27209761)
+
+```jenkinsfile
+pipeline {
+    agent any
+    stages {
+        stage('Example') {
+            input {
+                message "Should we continue?"
+                ok "Yes, we should."
+                submitter "alice,bob"
+                parameters {
+                    string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
+                }
+            }
+            steps {
+                echo "Hello, ${PERSON}, nice to meet you."
+            }
+        }
+    }
+}
+```
+
+# pipeline 用户选择
+
+```jenkinsfile
+pipeline {
+    agent any
+    parameters {
+        choice(name: 'CHOICE', choices: ['local', 'dev', 'test', 'prod'], description: 'Pick something')
+    }
+    stages {
+        stage('Example') {
+            when {
+                environment name: 'CHOICE', value: 'local'
+            }
+            steps {
+                echo "local, hello world!"
+            }
+        }
+        stage('Example2') {
+            when {
+                environment name: 'CHOICE', value: 'dev'
+            }
+            steps {
+                echo "dev, hello world!"
+            }
+        }
+    }
+}
+```
+
+
+
