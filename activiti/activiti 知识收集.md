@@ -30,4 +30,4 @@
 
 [关于Activiti多级审批自动绘图以及修改class方面的经验](https://blog.csdn.net/z479403374/article/details/75047936)
 
-[Activiti多级会签的实现])(https://blog.csdn.net/CHENHAO19900918/article/details/80002228)
+[Activiti多级会签的实现](https://blog.csdn.net/CHENHAO19900918/article/details/80002228)
