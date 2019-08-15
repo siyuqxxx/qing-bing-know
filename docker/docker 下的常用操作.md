@@ -2,19 +2,19 @@
 
 [TOC]
 
-## 使用 bash 操作正在运行的 容器
+# 使用 bash 操作正在运行的 容器
 
 ```sh
 docker exec -it test /bin/bash
 ```
 
-## docker 下检查远程主机端口是否开放
+# docker 下检查远程主机端口是否开放
 
 ```sh
 nc -v host port
 ```
 
-## 查看 docker 容器 日志 以 tomcat 为例
+# 查看 docker 容器 日志 以 tomcat 为例
 
 docker logs 命令描述，参考：[docker logs－查看docker容器日志][4.1]
 
@@ -30,7 +30,7 @@ docker logs -ft --tail=100 test-tomcat
 [4.1]:(https://www.cnblogs.com/gylhaut/p/9317843.html)
 [4.2]:(http://www.cnblogs.com/gyadmin/p/7814256.html)
 
-## 如何查看容器挂载的目录
+# 如何查看容器挂载的目录
 
 docker inspect - mounts 参考： [关于Docker目录挂载的总结][5.1]
 
@@ -40,7 +40,7 @@ docker inspect - mounts 参考： [关于Docker目录挂载的总结][5.1]
 
 -v [宿主主机路径]:[容器路径]
 
-## 修改运行中的docker容器的启动参数
+# 修改运行中的docker容器的启动参数
 
 [docker container update](https://docs.docker.com/engine/reference/commandline/container_update/) 官方文档
 
@@ -50,3 +50,12 @@ docker container update --restart=always 容器名字
 # 设置为自动 docker 不自动启动容器
 docker container update --restart=no 容器名字
 ```
+
+# 删除所有没有标签的镜像
+
+[docker images](https://docs.docker.com/engine/reference/commandline/images/) - 官方文档
+
+> ```
+> docker rmi $(docker images -f "dangling=true" -q)
+> ```
+
