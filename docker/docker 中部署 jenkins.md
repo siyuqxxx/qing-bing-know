@@ -207,5 +207,9 @@ pipeline {
 }
 ```
 
+# pipeline 用户多选
 
+[jenkins参数化构建过程（添加多选框）](https://blog.csdn.net/e295166319/article/details/54017231)
+
+[如何在Jenkins文件中传递多选值参数（Groovy）](https://www.soinside.com/question/YkQkr9EYH7UbXBZcrGaZBg)
 
