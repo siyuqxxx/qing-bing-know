@@ -213,3 +213,6 @@ pipeline {
 
 [如何在Jenkins文件中传递多选值参数（Groovy）](https://www.soinside.com/question/YkQkr9EYH7UbXBZcrGaZBg)
 
+# 流水线示例
+
+[采用jenkins pipeline实现自动构建并部署至k8s](https://www.jianshu.com/p/2d89fd1b4403)
