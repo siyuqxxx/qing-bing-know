@@ -10,6 +10,8 @@
 
 [Usage Examples](https://taskwarrior.org/docs/examples.html) - 官方使用例子
 
+[task命令行GTD工具用户手册](http://ju.outofmemory.cn/entry/144834)
+
 # 添加
 
 ```sh
@@ -37,4 +39,3 @@ task ghistory
 task calendar
 task burndown.daily
 ```
-
