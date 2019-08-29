@@ -8,6 +8,25 @@
 [Docker磁盘空间使用分析与清理](https://www.jianshu.com/p/7aeafe2ea792)
 [docker资源分配篇](https://blog.51cto.com/lidefu/2369147)
 
+# 安装
+
+[Get Docker Engine - Community for CentOS](https://docs.docker.com/install/linux/docker-ce/centos/) - 官网
+
+```sh
+sudo yum install -y yum-utils \
+  device-mapper-persistent-data \
+  lvm2
+  
+sudo yum-config-manager \
+    --add-repo \
+    https://download.docker.com/linux/centos/docker-ce.repo
+
+sudo yum install -y docker-ce docker-ce-cli containerd.io
+
+sudo systemctl enable docker
+sudo systemctl start docker
+```
+
 ## docker pull 慢
 
 `docker-machine ssh` 连接宿主机 default 
