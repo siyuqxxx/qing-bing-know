@@ -13,3 +13,16 @@
 >   + 20到200个节点组的中等规模的分布式场景，可以采用自增ID+步长的较快速方案。
 >   + 200以上节点组的大数据下的分布式场景，可以借鉴类似twitter雪花算法构造的全局自增ID作为主键。  
 
+# 远程 数据库 表 同步
+
+[MYSQL数据库间同步数据](https://blog.csdn.net/zdagf/article/details/80441524)
+
+> 关注 binlog 进行数据库同步
+
+[MySQL触发器实现两表数据同步（详解）](https://blog.csdn.net/qq_21891743/article/details/85061495)
+
+[mysql 建立远程同步表](https://blog.csdn.net/qq_38083665/article/details/80720116)
+
+# 数据库设计规范
+
+[值得收藏：一份非常完整的MySQL规范](https://zhuanlan.zhihu.com/p/69773290)
