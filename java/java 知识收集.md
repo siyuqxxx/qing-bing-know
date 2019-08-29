@@ -13,3 +13,9 @@
 [Bean Validation](https://beanvalidation.org/) - 官方文档
 
 [使用Bean Validation实现数据校验](https://www.jianshu.com/p/2a495bf5504e)
+
+# lambda 表达式 与 设计模式
+
+[Java8 in action(1) 通过行为参数化传递代码--lambda代替策略模式](https://yq.aliyun.com/articles/442018)
+
+[从策略模式闲扯到lambda表达式](https://www.jqhtml.com/39192.html)
