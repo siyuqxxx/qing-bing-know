@@ -2,15 +2,15 @@
 
 [TOC]
 
-## 参考资料
+# 参考资料
 
-### 官方文档：
+## 官方文档：
 
 [2.8 Deploying MySQL on Linux with Docker](https://dev.mysql.com/doc/mysql-linuxunix-excerpt/5.6/en/linux-installation-docker.html) - 概述，实际上没啥价值
 [2.8.1 Basic Steps for MySQL Server Deployment with Docker](https://dev.mysql.com/doc/mysql-linuxunix-excerpt/5.6/en/docker-mysql-getting-started.html) - 包含一个简单的基本介绍，没有介绍数据持久化的问题
 [2.8.2 More Topics on Deploying MySQL Server with Docker](https://dev.mysql.com/doc/mysql-linuxunix-excerpt/5.6/en/docker-mysql-more-topics.html) - 介绍了需要的参数，包括持久化问题
 
-## 部署 mysql
+# 部署 mysql
 
 我采用的命令是: 
 
@@ -53,7 +53,7 @@ grant all privileges on *.* to test@'172.17.0.%' identified by 'PASSWORD';
 
 [各个平台的mysql重启命令](https://www.cnblogs.com/adolfmc/p/5497974.html)
 
-### 开启 回滚
+## 开启 回滚
 
 ```sh
 echo "
@@ -75,7 +75,7 @@ mkdir -p /var/log/mysql
 chown -R mysql:mysql /var/log/mysql
 ```
 
-### 开启 慢日志
+## 开启 慢日志
 
 ```sh
 echo "
@@ -86,7 +86,7 @@ long_query_time = 1
 ">>/etc/my.cnf
 ```
 
-### innodb 独占表空间
+## innodb 独占表空间
 
 innodb_file_per_table
 ```sh
@@ -100,7 +100,7 @@ innodb_file_per_table = 1
 
  [MySQL Server参数优化 - innodb_file_per_table（独立表空间）](https://blog.csdn.net/jesseyoung/article/details/42236615)
 
-### mysql5.7支持group by
+## mysql5.7支持group by
 ```sh
 echo "
 # mysql5.7支持group by
@@ -114,3 +114,8 @@ sql_mode = STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_B
 
 [MySQL 5.7默认ONLY_FULL_GROUP_BY语义介绍](https://www.cnblogs.com/xzjf/p/8466858.html)
 
+## mysql 初始化时，执行初始化脚本
+
+[让docker中的mysql启动时自动执行sql](https://blog.csdn.net/boling_cavalry/article/details/71055159)
+
+[Docker Hub MySQL官方镜像实现首次启动后初始化库表](https://yov.oschina.io/article/容器/Docker/Docker Hub mysql官方镜像实现首次启动后初始化库表/)
