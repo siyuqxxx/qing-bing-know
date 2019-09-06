@@ -121,7 +121,7 @@ vi /var/jenkins_home/hudson.model.UpdateCenter.xml
 
 [问题解决：用Docker启动Jenkins出现权限问题](https://blog.csdn.net/qq_36792209/article/details/82695750)
 
-> ##### 在docker-compose.yml文件中加入user
+> 在docker-compose.yml文件中加入user
 
 # jenkins pileline 使用 npm 构建前端项目
 
