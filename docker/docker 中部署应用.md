@@ -25,6 +25,7 @@ docker pull osixia/openldap:1.2.4
 docker pull osixia/phpldapadmin:0.8.0
 docker pull busybox:1.31
 docker pull node:8.16-alpine
+docker pull redis:5.0.5-alpine
 ```
 
 ### 操作系统
