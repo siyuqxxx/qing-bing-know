@@ -96,11 +96,13 @@
 >
 > 首先从官网上下载源代码，下载之后解压缩，将jsp目录下的src中代码复制到项目中，然后将 config.json 放到项目的 resources 中
 >
-> 修改 ConfigManage.java 类的 getConfigPath() 方法，使其能加载 config.json 文件
+> 修改 ConfigManage.java 类的 getConfigPath() 方法，使其能加载 config.json 文件;
+>
+> 注意，这里返回的不再是 String 形式的路径，而是一个流；因此，方法名调整了
 >
 > ```java
-> private String getConfigPath() throws FileNotFoundException{
->     return ResourceUtils.getFile("classpath:config.json").getAbsolutePath();
+> private InputStream getConfig() throws IOException {
+>     return new ClassPathResource("config.json").getInputStream();
 > }
 > ```
 >
@@ -108,65 +110,65 @@
 >
 > ```java
 > public static final State save(HttpServletRequest request, Map<String, Object> conf) {
->     boolean isAjaxUpload = request.getHeader("X_Requested_With") != null;
+>  boolean isAjaxUpload = request.getHeader("X_Requested_With") != null;
 > 
->     if (!ServletFileUpload.isMultipartContent(request)) {
->         return new BaseState(false, AppInfo.NOT_MULTIPART_CONTENT);
->     }
+>  if (!ServletFileUpload.isMultipartContent(request)) {
+>      return new BaseState(false, AppInfo.NOT_MULTIPART_CONTENT);
+>  }
 > 
->     ServletFileUpload upload = new ServletFileUpload(
->             new DiskFileItemFactory());
+>  ServletFileUpload upload = new ServletFileUpload(
+>          new DiskFileItemFactory());
 > 
->     if (isAjaxUpload) {
->         upload.setHeaderEncoding("UTF-8");
->     }
+>  if (isAjaxUpload) {
+>      upload.setHeaderEncoding("UTF-8");
+>  }
 > 
->     try {
->         MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
->         MultipartFile fileStream = multipartRequest.getFile("upfile");
+>  try {
+>      MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
+>      MultipartFile fileStream = multipartRequest.getFile("upfile");
 > 
->         if (fileStream == null) {
->             return new BaseState(false, AppInfo.NOTFOUND_UPLOAD_DATA);
->         }
+>      if (fileStream == null) {
+>          return new BaseState(false, AppInfo.NOTFOUND_UPLOAD_DATA);
+>      }
 > 
->         String savePath = (String) conf.get("savePath");
->         String originFileName = fileStream.getOriginalFilename();
+>      String savePath = (String) conf.get("savePath");
+>      String originFileName = fileStream.getOriginalFilename();
 > 
->         if (originFileName == null) {
->             return new BaseState(false, AppInfo.PARSE_REQUEST_ERROR);
->         }
+>      if (originFileName == null) {
+>          return new BaseState(false, AppInfo.PARSE_REQUEST_ERROR);
+>      }
 > 
->         String suffix = FileType.getSuffixByFilename(originFileName);
+>      String suffix = FileType.getSuffixByFilename(originFileName);
 > 
->         originFileName = originFileName.substring(0,
->                 originFileName.length() - suffix.length());
->         savePath = savePath + suffix;
+>      originFileName = originFileName.substring(0,
+>              originFileName.length() - suffix.length());
+>      savePath = savePath + suffix;
 > 
->         long maxSize = ((Long) conf.get("maxSize")).longValue();
+>      long maxSize = ((Long) conf.get("maxSize")).longValue();
 > 
->         if (!validType(suffix, (String[]) conf.get("allowFiles"))) {
->             return new BaseState(false, AppInfo.NOT_ALLOW_FILE_TYPE);
->         }
+>      if (!validType(suffix, (String[]) conf.get("allowFiles"))) {
+>          return new BaseState(false, AppInfo.NOT_ALLOW_FILE_TYPE);
+>      }
 > 
->         savePath = PathFormat.parse(savePath, originFileName);
+>      savePath = PathFormat.parse(savePath, originFileName);
 > 
->         String physicalPath = (String) conf.get("uploadPath") + savePath;
+>      String physicalPath = (String) conf.get("uploadPath") + savePath;
 > 
->         InputStream is = fileStream.getInputStream();
->         State storageState = StorageManager.saveFileByInputStream(is,
->                 physicalPath, maxSize);
->         is.close();
+>      InputStream is = fileStream.getInputStream();
+>      State storageState = StorageManager.saveFileByInputStream(is,
+>              physicalPath, maxSize);
+>      is.close();
 > 
->         if (storageState.isSuccess()) {
->             storageState.putInfo("url", PathFormat.format(physicalPath));
->             storageState.putInfo("type", suffix);
->             storageState.putInfo("original", originFileName + suffix);
->         }
+>      if (storageState.isSuccess()) {
+>          storageState.putInfo("url", PathFormat.format(physicalPath));
+>          storageState.putInfo("type", suffix);
+>          storageState.putInfo("original", originFileName + suffix);
+>      }
 > 
->         return storageState;
->     } catch (IOException e) {
->     }
->     return new BaseState(false, AppInfo.IO_ERROR);
+>      return storageState;
+>  } catch (IOException e) {
+>  }
+>  return new BaseState(false, AppInfo.IO_ERROR);
 > }
 > ```
 >
@@ -189,3 +191,7 @@
 > ```
 >
 > 
+
+#  碰到的问题
+
+[ueditor百度富文本编辑器linux下报错: class path resource 【config.json】 cannot be resolved to absolute file path because it does not reside in the file system](https://www.cnblogs.com/findtasy/p/10043273.html)
