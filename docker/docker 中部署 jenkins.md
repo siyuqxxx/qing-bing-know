@@ -49,14 +49,14 @@ services:
       - "40001:8080"
       - "40002:5000"
     volumes:
-      - jenkins-data:/var/jenkins_home
+      - data:/var/jenkins_home
       - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
       - /var/run/docker.sock:/var/run/docker.sock
       - /usr/local/bin/docker:/bin/docker:ro
-    restart: "no"
+    restart: always
 volumes:
-  jenkins-data:
+  data:
 
 ```
 
@@ -122,6 +122,33 @@ vi /var/jenkins_home/hudson.model.UpdateCenter.xml
 [问题解决：用Docker启动Jenkins出现权限问题](https://blog.csdn.net/qq_36792209/article/details/82695750)
 
 > 在docker-compose.yml文件中加入user
+
+# 部署在 docker 中的 jenkins 使用宿主机的 docker-compose
+
+[docker部署Jenkins，以及在Jenkins中使用宿主机的docker/docker-compose命令](http://www.mamicode.com/info-detail-2160456.html)
+
+> 文章可读性太差；内容好着呢
+
+[Can not install docker-compose in docker container](https://github.com/docker/compose/issues/6004)
+
+> You need glibc for `docker-compose` to run on alpine
+>
+> jenkins-blueocean 的镜像是基于 alpine 制作的，没有 glibc
+
+[Alpine与glibc](https://www.szyhf.org/2016/12/16/alpine与glibc/)
+
+> 1. alpine使用的glic不是一般CentOs或者Ubuntu使用的版本，某种意义上可以看作是一个简化版，它能支持大部分的应用，但bitcoind除外。
+> 2. 所以使用的时候需要安装针对alpine专用的glic。
+> 3. 官网建议使用busybox的方案，暂时未验证。
+> 4. 使用的是另一个开源项目：https://github.com/sgerrand/alpine-pkg-glibc
+
+[Running glibc programs](https://wiki.alpinelinux.org/wiki/Running_glibc_programs)
+
+> 官方 wiki
+
+
+
+由于 jenkins/blueocean 镜像基于 alpine，因此需要使用非 alpine 的镜像 jenkins/jenkins:2.190.1-centos
 
 # jenkins pileline 使用 npm 构建前端项目
 
@@ -216,3 +243,46 @@ pipeline {
 # 流水线示例
 
 [采用jenkins pipeline实现自动构建并部署至k8s](https://www.jianshu.com/p/2d89fd1b4403)
+
+# 手动安装 nodejs
+
+**注意**：这里特指，在 docker alpine 镜像下部署 jenkins
+
+[Official Alpine Linux mirrors](https://mirrors.alpinelinux.org/)
+
+> 检索国内镜像，选择速度比较快的即可
+
+```sh
+sed -i 's/mirrors.tuna.tsinghua.edu.cn/mirrors.nju.edu.cn/g' /etc/apk/repositories
+apk --update-cache update && apk add nodejs npm
+node -v
+npm -v
+```
+
+# 手动安装 maven
+
+**注意**：这里特指，在 docker alpine 镜像下部署 jenkins
+
+```sh
+mkdir /var/jenkins_home/tools
+cd /var/jenkins_home/tools/
+curl -O https://archive.apache.org/dist/maven/maven-3/3.6.1/binaries/apache-maven-3.6.1-bin.tar.gz
+tar -zxf apache-maven-3.6.1-bin.tar.gz && rm -f apache-maven-3.6.1-bin.tar.gz
+cd apache-maven-3.6.1/bin
+. mvn
+cp ../conf/settings.xml ~/.m2/ && vi ~/.m2/settings.xml
+```
+
+阿里云镜像
+
+```xml
+    <mirror>
+      <id>alimaven</id>
+      <mirrorOf>central</mirrorOf>
+      <name>aliyun maven</name>
+      <url>http://maven.aliyun.com/nexus/content/repositories/central/</url>
+    </mirror>
+```
+
+
+
