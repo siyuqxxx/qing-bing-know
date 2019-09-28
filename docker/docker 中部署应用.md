@@ -4,9 +4,7 @@
 
 ## 参考资料
 
-《[Docker — 从入门到实践][图书 Docker — 从入门到实践]》
-
-[图书 Docker — 从入门到实践]:https://yeasy.gitbooks.io/docker_practice/content/
+《[Docker — 从入门到实践](https://yeasy.gitbooks.io/docker_practice/content/ )》
 
 
 ## 常用镜像
