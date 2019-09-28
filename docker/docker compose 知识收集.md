@@ -40,3 +40,17 @@ services.{service_name}.restart 可用参数
 # 其他
 
 [docker学习(八) docker-compose 启动一个springboot 连接mysql](https://blog.csdn.net/u011943534/article/details/81392993)
+
+# command 
+
+[如何在docker-compose.yml文件中command执行多条命令？](https://segmentfault.com/q/1010000014461396)
+
+> ```
+> command:
+>   - /bin/sh
+>   - -c
+>   - |
+>     python3 manage.py migrate
+>     # ...随意添加任意脚本...
+>     python3 manage.py runserver 0.0.0.0:8000
+> ```
