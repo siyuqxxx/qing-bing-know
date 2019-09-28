@@ -231,7 +231,7 @@ root@xxxxxx:/var/lib# rm -rf docker_bak/
 # 整体放开 docker 的防火墙限制
 sudo firewall-cmd --permanent --zone=trusted --add-interface=docker0
 # xxxx改为你希望的端口号
-# do firewall-cmd --permanent --zone=trusted --add-port=xxxx/tcp
+# sudo firewall-cmd --permanent --zone=trusted --add-port=xxxx/tcp
 sudo firewall-cmd --reload
 ```
 
