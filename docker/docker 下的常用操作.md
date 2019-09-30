@@ -59,3 +59,8 @@ docker container update --restart=no 容器名字
 > docker rmi $(docker images -f "dangling=true" -q)
 > ```
 
+# docker 引擎日志
+
+[Docker 日志都在哪里？怎么收集？](https://www.cnblogs.com/YatHo/p/7866029.html)
+
+> CentOS 7 : journalctl -u docker.service
