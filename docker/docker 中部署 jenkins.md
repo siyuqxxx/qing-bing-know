@@ -123,6 +123,14 @@ vi /var/jenkins_home/hudson.model.UpdateCenter.xml
 
 > 在docker-compose.yml文件中加入user
 
+## centos7 下无法使用宿主机 docker
+
+仅针对：jenkins/jenkins:2.190.1-centos 使用这个镜像并不能使用 docker 
+
+[在容器中操作宿主机的Docker](https://blog.csdn.net/Loiterer_Y/article/details/88126582)
+
+> 这篇博客并不能解决问题，但是提供了一个思路，估计是缺少什么依赖造成的
+
 # 部署在 docker 中的 jenkins 使用宿主机的 docker-compose
 
 [docker部署Jenkins，以及在Jenkins中使用宿主机的docker/docker-compose命令](http://www.mamicode.com/info-detail-2160456.html)
@@ -141,6 +149,7 @@ vi /var/jenkins_home/hudson.model.UpdateCenter.xml
 > 2. 所以使用的时候需要安装针对alpine专用的glic。
 > 3. 官网建议使用busybox的方案，暂时未验证。
 > 4. 使用的是另一个开源项目：https://github.com/sgerrand/alpine-pkg-glibc
+> 5. alpine-pkg-glic的说明文档其实有提到，如果需要更多的locadef功能，就得再装一个glibc-bin（印象中跟报的错有关），所以解决方案就是在该项目下载另一个apk装了，解决。
 
 [Running glibc programs](https://wiki.alpinelinux.org/wiki/Running_glibc_programs)
 
@@ -149,6 +158,32 @@ vi /var/jenkins_home/hudson.model.UpdateCenter.xml
 
 
 由于 jenkins/blueocean 镜像基于 alpine，因此需要使用非 alpine 的镜像 jenkins/jenkins:2.190.1-centos
+
+> 经过实践证明，使用这个镜像，docker-compose 可以使用了，但是 docker 却不能使用了
+
+
+
+最终，采用安装 glibc 组件实现功能
+
+```sh
+# 提高 alpine 组件库速度；不是必须的
+# 西安
+sed -i 's/dl-cdn.alpinelinux.org/mirrors.nju.edu.cn/g' /etc/apk/repositories
+# 北京
+sed -i 's/dl-cdn.alpinelinux.org/mirrors.tuna.tsinghua.edu.cn/g' /etc/apk/repositories
+
+wget -c https://github.com/sgerrand/alpine-pkg-glibc/releases/download/2.30-r0/glibc-2.30-r0.apk
+wget -c https://github.com/sgerrand/alpine-pkg-glibc/releases/download/2.30-r0/glibc-bin-2.30-r0.apk
+
+apk --update-cache update
+wget -q -O /etc/apk/keys/sgerrand.rsa.pub https://alpine-pkgs.sgerrand.com/sgerrand.rsa.pub
+apk add bash glibc-2.30-r0.apk glibc-bin-2.30-r0.apk
+rm -rf glibc-2.30-r0.apk glibc-bin-2.30-r0.apk
+```
+
+注意，由于 github 下载比较慢，要注意观察，不行就杀死 wget 重新运行
+
+
 
 # jenkins pileline 使用 npm 构建前端项目
 
@@ -253,11 +288,31 @@ pipeline {
 > 检索国内镜像，选择速度比较快的即可
 
 ```sh
-sed -i 's/mirrors.tuna.tsinghua.edu.cn/mirrors.nju.edu.cn/g' /etc/apk/repositories
+# 提高 alpine 组件库速度；不是必须的
+# 西安
+sed -i 's/dl-cdn.alpinelinux.org/mirrors.nju.edu.cn/g' /etc/apk/repositories
+# 北京
+sed -i 's/dl-cdn.alpinelinux.org/mirrors.tuna.tsinghua.edu.cn/g' /etc/apk/repositories
+
 apk --update-cache update && apk add nodejs npm
 node -v
 npm -v
 ```
+
+centos
+
+[github/nodesource/distributions](https://github.com/nodesource/distributions)
+
+[CentOS7利用yum安装node.js](https://www.cnblogs.com/yanwanglol/p/8762488.html)
+
+```sh
+curl -sL https://rpm.nodesource.com/setup_10.x | bash -
+yum install -y nodejs
+node -v
+npm -v
+```
+
+
 
 # 手动安装 maven
 
