@@ -35,6 +35,8 @@
 
 [一起来学SpringBoot | 第二十一篇：轻松搞定数据验证（三）](http://www.spring4all.com/article/1228)
 
+[@Validated和@Valid区别：Spring validation验证框架对入参实体进行嵌套验证必须在相应属性（字段）加上@Valid而不是@Validated](https://blog.csdn.net/qq_27680317/article/details/79970590)
+
 # junit
 
 [MockMvc control层单元测试 参数传递问题](https://blog.csdn.net/wang_muhuo/article/details/84655577)
