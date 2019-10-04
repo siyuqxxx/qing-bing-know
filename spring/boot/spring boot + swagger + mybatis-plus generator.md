@@ -87,6 +87,9 @@ swagger:
 ```yml
 swagger:
   exclude-path: /error
+  authorization:
+    name: Authorization
+    key-name: Authorization
 ```
 
 # mybatis-plus generator 配置
@@ -149,5 +152,16 @@ public class WebMvcConfig implements WebMvcConfigurer {
         return new LoginInterceptor();
     }
 }
+```
+
+# swagger 生成接口的鉴权问题
+
+详见参考资料中，[github/SpringForAll/spring-boot-starter-swagger](https://github.com/SpringForAll/spring-boot-starter-swagger) swagger 套件的 readme.md 通过配置实现鉴权，摘录如下
+
+```yml
+swagger:
+  authorization:
+    name: Authorization
+    key-name: Authorization
 ```
 
