@@ -75,9 +75,18 @@ public class WebMvcConfig implements WebMvcConfigurer {
 
 # application.yml 配置
 
+这个配置随环境走，由具体的环境控制是否开关
+
 ```yml
 swagger:
   enabled: true
+```
+
+这个配置是公共的，不展示 spring boot 自带`/error`请求路径下的 api 接口。
+
+```yml
+swagger:
+  exclude-path: /error
 ```
 
 # mybatis-plus generator 配置
@@ -97,6 +106,48 @@ private static GlobalConfig createGlobalCfg(String projectPath) {
     // 实体属性 Swagger2 注解
     gc.setSwagger2(true);
     return gc;
+}
+```
+
+# 自定义拦截器配置
+
+[spring boot 加入拦截器后swagger不能访问问题](https://blog.csdn.net/liu0bing/article/details/80826590)
+
+> 不要拦截这些 `"/swagger-resources/**", "/webjars/**", "/v2/**", "/swagger-ui.html/**"`
+
+[spring boot 集成swagger并且使用拦截器的配置问题](https://segmentfault.com/a/1190000018913038)
+
+> 写的比较详细一些
+>
+> 另外提到了 /error，不拦截 spring boot 自带`/error`请求路径下的 api 接口。
+
+```java
+import com.wdzggroup.rbzy.oa.interceptor.LoginInterceptor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.core.Ordered;
+import org.springframework.web.servlet.config.annotation.*;
+
+/**
+ * 加载静态资源类
+ * liuzhize 2019年3月7日下午3:25:49
+ */
+@Configuration
+public class WebMvcConfig implements WebMvcConfigurer {
+
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(LoginInterceptor())
+                .addPathPatterns("/**")
+                .excludePathPatterns("/error")
+                .excludePathPatterns("/swagger-resources/**", "/webjars/**", "/v2/**", "/swagger-ui.html");
+    }
+
+    @Bean
+    public LoginInterceptor LoginInterceptor() {
+        return new LoginInterceptor();
+    }
 }
 ```
 
