@@ -4,6 +4,37 @@
 
 # 参考资料
 
+[mybatis-plus的使用 ------ 进阶](https://www.jianshu.com/p/a4d5d310daf8)
+
+# pom.xml 配置
+
+[快速开始](https://mp.baomidou.com/guide/quick-start.html) - 官网
+
+```xml
+<!--mybatis-plus 核心依赖-->
+<dependency>
+  <groupId>com.baomidou</groupId>
+  <artifactId>mybatis-plus-boot-starter</artifactId>
+  <version>3.2.0</version>
+</dependency>
+
+<dependency>
+    <groupId>com.baomidou</groupId>
+    <artifactId>mybatis-plus-generator</artifactId>
+    <version>3.2.0</version>
+</dependency>
+```
+
+# 代码生成器
+
+官方： 
+
+[代码生成器](https://mp.baomidou.com/guide/generator.html)
+
+[代码生成器配置](https://mp.baomidou.com/config/generator-config.htm)
+
+# 生成主键
+
 [mybatis-plus id主键生成的坑](https://blog.csdn.net/qq_34208844/article/details/88819467)
 
 > 解决问题：
@@ -13,8 +44,6 @@
 > ```
 > @TableId(value = "id",type = IdType.AUTO)
 > ```
-
-[mybatis-plus的使用 ------ 进阶](https://www.jianshu.com/p/a4d5d310daf8)
 
 # 分页
 
@@ -51,14 +80,6 @@ public class MybatisPlusConfig {
 > 包含一个比较不错的 yml 配置
 >
 > 包含 mybatis-plus generator 配置
-
-# 代码生成器
-
-官方： 
-
-[代码生成器](https://mp.baomidou.com/guide/generator.html)
-
-[代码生成器配置](https://mp.baomidou.com/config/generator-config.htm)
 
 # 自动填充 @TableField
 
