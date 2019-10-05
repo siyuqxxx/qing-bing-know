@@ -111,7 +111,9 @@ private static GlobalConfig createGlobalCfg(String projectPath) {
 }
 ```
 
-# 自定义拦截器配置
+# 鉴权问题
+
+## 自定义拦截器配置
 
 [spring boot 加入拦截器后swagger不能访问问题](https://blog.csdn.net/liu0bing/article/details/80826590)
 
@@ -153,7 +155,38 @@ public class WebMvcConfig implements WebMvcConfigurer {
 }
 ```
 
-# swagger 生成接口的鉴权问题
+## shiro
+
+[shiro 整合swagger2的坑](https://blog.csdn.net/afsvsv/article/details/86639482)
+
+```java
+@Configuration
+public class ShiroConfig {
+
+    @Bean
+    public ShiroFilterFactoryBean shirFilter(SecurityManager securityManager) {
+        ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();
+        shiroFilterFactoryBean.setSecurityManager(securityManager);
+
+        Map<String, String> filterChainDefinitionMap = new LinkedHashMap<String, String>();
+
+        filterChainDefinitionMap.put("/swagger-ui.html", "anon");
+        filterChainDefinitionMap.put("/swagger-resources/**", "anon");
+        filterChainDefinitionMap.put("/webjars/**", "anon");
+        filterChainDefinitionMap.put("/v2/**", "anon");
+
+        //配置shiro默认登录界面地址，前后端分离中登录界面跳转应由前端路由控制，后台仅返回json数据
+        Map<String, Filter> filters = shiroFilterFactoryBean.getFilters();
+        // 注意这里不要用Bean的方式，否则会报错
+        filters.put("authc", new ShiroUserFilter());
+        shiroFilterFactoryBean.setFilters(filters);
+        shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);
+
+        return shiroFilterFactoryBean;
+    }
+```
+
+## swagger 生成的 api 接口调用时的鉴权问题
 
 详见参考资料中，[github/SpringForAll/spring-boot-starter-swagger](https://github.com/SpringForAll/spring-boot-starter-swagger) swagger 套件的 readme.md 通过配置实现鉴权，摘录如下
 
