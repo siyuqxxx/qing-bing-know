@@ -80,6 +80,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
 ```yml
 swagger:
   enabled: true
+  host: 10.11.18.201:8061
 ```
 
 这个配置是公共的，不展示 spring boot 自带`/error`请求路径下的 api 接口。
@@ -194,5 +195,16 @@ public class ShiroConfig {
 swagger:
   authorization:
     key-name: Authorization
+```
+
+# 项目发布 docker 后，swagger 生成的 api 拿不到端口号问题
+
+[工程部署到 docker 后拿不到端口号](https://github.com/SpringForAll/spring-boot-starter-swagger/issues/168)
+
+通过指定端口号，强制要求 swagger 按照指定的端口号请求接口
+
+```yml
+swagger:
+  host: 10.11.18.201:8061
 ```
 
