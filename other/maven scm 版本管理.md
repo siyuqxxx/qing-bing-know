@@ -1,0 +1,21 @@
+# maven scm 版本管理
+
+[TOC]
+
+# pom.xml
+
+```xml
+<scm>
+    <connection>scm:git:ssh://git@10.11.18.201:43022/oa-group/oa-privilege.git</connection>
+    <tag>HEAD</tag>
+</scm>
+```
+
+# 使用 maven 发布版本
+
+```sh
+mvn release:prepare -Darguments="-Dmaven.test.skip=true"
+```
+
+
+
