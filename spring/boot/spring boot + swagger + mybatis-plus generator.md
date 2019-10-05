@@ -88,7 +88,6 @@ swagger:
 swagger:
   exclude-path: /error
   authorization:
-    name: Authorization
     key-name: Authorization
 ```
 
@@ -161,7 +160,6 @@ public class WebMvcConfig implements WebMvcConfigurer {
 ```yml
 swagger:
   authorization:
-    name: Authorization
     key-name: Authorization
 ```
 
