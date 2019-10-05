@@ -19,3 +19,34 @@
 [sping4.3+ hibernate-validator@Validated注解失效最终解决方法](https://my.oschina.net/u/3293842/blog/1922735)
 
 [一起来学SpringBoot | 第十八篇：轻松搞定全局异常](http://www.spring4all.com/article/1211)
+
+```java
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
+
+import java.util.Optional;
+import java.util.stream.Collectors;
+
+@Slf4j
+@RestControllerAdvice
+public class ApiExceptionHandler {
+    /**
+     * 全局参数校验
+     */
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public HttpEntity<String> bindExceptionErrorHandler(MethodArgumentNotValidException e) {
+        log.error(e.getMessage());
+        log.debug(e.getMessage(), e);
+        String errMsg = e.getBindingResult().getFieldErrors().stream()
+                .map(err -> String.format("%s: %s", err.getField(), Optional.ofNullable(err.getDefaultMessage()).orElse("")))
+                .collect(Collectors.joining("; "));
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errMsg);
+    }
+}
+```
+
