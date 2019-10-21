@@ -197,3 +197,11 @@
 [spring 组件@Scope(request,session)示例](https://www.bbsmax.com/A/Vx5MvQ97dN/)
 
 > 那在谈到具体的示例前，我先分享下对这两种场景的使用心得，以便与各位看官进行思想上的神交! 我们都知道B/S站点运行起来后，是一个多线程的运行环境。**每个客户端登录都会产生一个session会话,它的生命周期 从登录系统到 session过期，期间session上存储的信息都是有效可用的，我习惯于叫它会话级的缓存，像用户登录的身份信息我们一般都会绑定到这个session上**。这里我们要讲的@Scope("session")，就是spring提供出来的一个会话级bean方案,在这种模式下，用spring的DI功能来获取组件,可以做到在会话的生命周期中这个组件只有一个实例。接下来再说请求(request),http协议的处理模型,从客户端发起request请求，到服务端的处理，最后response给客户端，我们称为一次完整的请求。在这样的一次请求过程中，我们的服务站可能要串行调用funcA->funcB->funcC·... 这样的一串函数，假如我们的系统需要做细致的权限校验(用户权限,数据权限)，更可怕的是funcA,funcB,funcC是3个人分别实现的，而且都要做权限校验。那么极有可能会出现3个人各连接了一次数据库，读取了同一批权限数据。这里想象一下，假如一个数据读取要花2秒,那么3个方法就要花费6秒的处理时间。**但实际上这些数据只用在这个请求过程中读取一次,缓存在request上下文环境中，我习惯称之为线程级缓存。关于线程级缓存java有ThreadLocal方案，像Hibernate的事务就是用这种方案维持一次执行过程中数据库连接的唯一**。当然，今天要讲的@Scope("request")也可以做到这种线程级别的缓存。下面我们看看具体的测试示例
+
+# 静态类 从application.yml读字符串
+
+[springboot中静态属性/静态方法从YAML(yml)读取配置属性](https://www.cnblogs.com/passedbylove/p/11207827.html)
+
+> 启动类添加注解@EnableConfigurationProperties
+
+[Spring Boot中静态方法读取yml配置文件的办法。](https://blog.csdn.net/qq_17769897/article/details/88990492)
