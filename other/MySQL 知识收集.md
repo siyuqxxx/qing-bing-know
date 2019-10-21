@@ -26,3 +26,9 @@
 # 数据库设计规范
 
 [值得收藏：一份非常完整的MySQL规范](https://zhuanlan.zhihu.com/p/69773290)
+
+# SQL JOIN 相关知识
+
+[[译文\] SQL JOIN，你想知道的应该都有](https://www.cnblogs.com/xufeiyang/p/5818571.html)
+
+![img](https://www.codeproject.com/KB/database/Visual_SQL_Joins/Visual_SQL_JOINS_V2.png)
