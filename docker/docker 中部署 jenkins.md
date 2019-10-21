@@ -341,3 +341,8 @@ cp ../conf/settings.xml ~/.m2/ && vi ~/.m2/settings.xml
 
 
 
+# pipeline 中使用 tag 构建项目
+
+[When using tags in Jenkins Pipeline](https://jenkins.io/blog/2018/05/16/pipelines-with-git-tags/)
+
+> ![Configuring the Multibranch Pipeline](https://jenkins.io/images/post-images/pipeline-tags/branch-source.png)
