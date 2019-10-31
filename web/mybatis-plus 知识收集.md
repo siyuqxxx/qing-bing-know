@@ -134,3 +134,9 @@ public void id2UUID() {
     super.update(new Org(), wrapper);
 }
 ```
+
+> 
+
+# OR
+
+[MybatisPlus QueryWrapper and or 连用](https://blog.csdn.net/u011229848/article/details/81902398)
