@@ -275,9 +275,15 @@ pipeline {
 
 [如何在Jenkins文件中传递多选值参数（Groovy）](https://www.soinside.com/question/YkQkr9EYH7UbXBZcrGaZBg)
 
+[<三十二>Jenkins-pipeline学习笔记–Jenkinsfile声明式语法详解(二)](http://www.eryajf.net/3298.html)
+
 # 流水线示例
 
 [采用jenkins pipeline实现自动构建并部署至k8s](https://www.jianshu.com/p/2d89fd1b4403)
+
+[基于Jenkins Pipeline的ASP.NET Core持续集成实践](https://www.cnblogs.com/lonelyxmas/p/10713783.html)
+
+> 这篇文章，看起来高大上
 
 # 手动安装 nodejs
 
