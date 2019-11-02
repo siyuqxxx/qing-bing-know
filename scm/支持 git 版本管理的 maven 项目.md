@@ -17,62 +17,34 @@
 >
 >  关于命令参数的解释，可以参考 [mvn release:perform skip test](https://hacpai.com/forward?goto=http%3A%2F%2Fstackoverflow.com%2Fquestions%2F8685100%2Fhow-can-i-get-maven-release-plugin-to-skip-my-tests)
 
-# 配置
 
-## scm git 仓库配置
-
-在 pom.xml 中添加如下配置：
+# pom.xml
 
 ```xml
-<project>
-  
-  ...
-  
-  <scm>
-    <connection>scm:git:git@github.com:qiansiyu/excel.git</connection>
-  </scm>
-
-  <distributionManagement>
-    <repository>
-      <id>nexus-releases</id>
-      <name>Private Release Repository</name>
-      <url>http://192.168.0.11:8081/repository/maven-releases/</url>
-    </repository>
-    <snapshotRepository>
-      <id>nexus-snapshots</id>
-      <name>Private Snapshot Repository</name>
-      <url>http://192.168.0.11:8081/repository/maven-snapshots/</url>
-    </snapshotRepository>
-  </distributionManagement>
-  
-  ...
-
-  <build>
-    <pluginManagement>
-      <plugins>
-      
-        ...
-      
-        <plugin>
-          <artifactId>maven-release-plugin</artifactId>
-          <version>2.5.3</version>
-          <configuration>
-            <tagNameFormat>V@{project.version}</tagNameFormat>
-          </configuration>
-        </plugin>
-        
-        ...
-        
-      </plugins>
-    </pluginManagement>
-  </build>
-</project>
+<scm>
+    <connection>scm:git:ssh://git@10.11.18.201:43022/oa-group/oa-privilege.git</connection>
+    <tag>HEAD</tag>
+</scm>
 ```
 
-两个关键配置，一个 `scm` 一个 `maven-release-plugin` 
-
-执行一次版本发布
+# 使用 maven 发布版本
 
 ```sh
-mvn clean release:prepare release:perform
+mvn -B release:prepare -Darguments="-Dmaven.test.skip=true"
 ```
+
+
+
+# 不需要交互设置版本号
+
+[Apache Maven Release Plugin插件详解](https://blog.csdn.net/taiyangdao/article/details/82658799)
+
+> 非交互模式
+> 
+> ```sh
+> mvn -B release:prepare release:perform
+> # 或
+> mvn --batch-mode release:prepare release:perform
+> ```
+>
+> 
