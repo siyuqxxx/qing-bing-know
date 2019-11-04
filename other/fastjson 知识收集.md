@@ -18,3 +18,5 @@
 >
 > 
 
+[FastJson解析对象中的泛型](https://blog.csdn.net/yoyohoho1/article/details/91364185)
+
