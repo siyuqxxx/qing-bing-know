@@ -38,6 +38,18 @@
 
 > 使用了工具 git flow
 
+[GIT, GitFlow and 持续集成 ]( https://www.v2ex.com/t/456299 )
+
+> 这篇文章讲的是思想
+
+[Java程序员学习资料—Git Flow]( https://cloud.tencent.com/developer/article/1430472 )
+
+> 在命令行下使用 gitflow
+
+[SourceTree]( https://www.jianshu.com/p/d27c9ec70592 )
+
+> sourcetree gui 工具 使用 gitflow
+
 [大型项目的 Gitflow 实践](https://cloud.tencent.com/developer/article/1523743)
 
 > 一个具体实践
