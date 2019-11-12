@@ -30,7 +30,7 @@
 # 使用 maven 发布版本
 
 ```sh
-mvn -B release:prepare -Darguments="-Dmaven.test.skip=true"
+mvn release:prepare -Darguments="-Dmaven.test.skip=true"
 ```
 
 
