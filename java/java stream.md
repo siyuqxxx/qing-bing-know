@@ -43,6 +43,8 @@
 >  IntStream.range(0,10).boxed().collect(Collectors.toList());
 > ```
 
+# flatmap
+
 [java8 stream流操作的flatMap（流的扁平化）](https://blog.csdn.net/Mark_Chao/article/details/80810030)
 
 > 案例：对给定单词列表 ["Hello","World"],你想返回列表["H","e","l","o","W","r","d"]
