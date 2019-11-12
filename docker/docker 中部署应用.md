@@ -14,7 +14,7 @@
 ```sh
 docker pull jenkinsci/blueocean:1.17.0
 docker pull mysql/mysql-server:5.7.26
-docker pull gogs/gogs:0.11.86
+docker pull gogs/gogs:0.11.91
 docker pull idoop/zentao:11.4.1
 docker pull nginx:1.17.0-alpine
 docker pull sonatype/nexus3:3.16.2
