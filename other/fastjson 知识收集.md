@@ -20,3 +20,12 @@
 
 [FastJson解析对象中的泛型](https://blog.csdn.net/yoyohoho1/article/details/91364185)
 
+[基于FastJson的通用泛型解决方案](https://www.cnblogs.com/scy251147/p/9451879.html)
+
+> ```java
+> //开启fastjson autotype功能（不开启，造成EntityWrapper<T>中的T无法正常解析）
+> ParserConfig.getGlobalInstance().setAutoTypeSupport(true);
+> ```
+
+[fastjson 1.2.61 发布，增加 autoType 安全黑名单](https://www.oschina.net/news/110001/fastjson-1-2-61-released)
+
