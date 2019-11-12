@@ -28,7 +28,7 @@ docker run --name gogs -d \
     gogs/gogs:latest
 ```
 
-# 使用 docker-compose 部署 gogos
+# 使用 docker-compose 部署 gogs
 
 [docker-compose安装gogs](https://www.520mwx.com/view/44197)
 
@@ -78,7 +78,7 @@ volumes:
 
 
 
-# 首次登陆配置
+## 首次登陆配置
 
 访问地址：http://192.168.32.9:43000 填写 install 表单
 
