@@ -28,7 +28,7 @@
 > git push --all --tags --force
 > ```
 
-# 版本管理
+# 版本管理思想
 
 [Git工作流指南：Gitflow工作流](https://msd.misuland.com/pd/2884250171976191636)
 
@@ -73,3 +73,7 @@
 > 
 
 [无需分支基于主干的开发是团队健康的重要标志](https://cloud.tencent.com/developer/news/464904)
+
+## gitflow idea
+
+ [笔记 | 关于 IDEA 中 Git-Flow 插件的使用](https://www.jianshu.com/p/2bad1d6062ec) 
