@@ -32,3 +32,10 @@
 [[译文\] SQL JOIN，你想知道的应该都有](https://www.cnblogs.com/xufeiyang/p/5818571.html)
 
 ![img](https://www.codeproject.com/KB/database/Visual_SQL_Joins/Visual_SQL_JOINS_V2.png)
+
+# SQL 正则表达式
+
+[MySQL 正则表达式](https://www.runoob.com/mysql/mysql-regexp.html)
+
+[sql里的正则表达式](https://www.cnblogs.com/q1104460935/p/7991321.html)
+
