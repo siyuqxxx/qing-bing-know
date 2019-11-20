@@ -27,6 +27,10 @@ sudo systemctl enable docker
 sudo systemctl start docker
 ```
 
+[在RHEL 8/CentOS 8上安装Docker和Docker Compose的方法](https://ywnz.com/linuxjc/4487.html)
+
+>  sudo yum -y  install docker-ce 
+
 ## docker pull 慢
 
 `docker-machine ssh` 连接宿主机 default 
