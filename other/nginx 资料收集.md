@@ -35,10 +35,16 @@ https://www.cnblogs.com/aaron-agu/p/8003831.html) 觉得这篇文章很不错的
 [TCP_NODELAY 和 TCP_NOPUSH的解释](https://www.cnblogs.com/wajika/p/6573014.html)
 [从一起丢包故障来谈谈 nginx 中的 tcp keep-alive](https://segmentfault.com/a/1190000018011857)
 
-### gzip
+## gzip
 
 [Nginx系列5：nginx服务器的Gzip压缩](https://www.jianshu.com/p/141d5175a181)
 
 ## expires
 
 [nginx 利用expires来让客户端缓存不常改变的数据](https://blog.csdn.net/hjh15827475896/article/details/53434298)
+
+
+
+##  **client_max_body_size** 
+
+[ngx_http_core_module 模块](http://tengine.taobao.org/nginx_docs/cn/docs/http/ngx_http_core_module.html#client_max_body_size)
