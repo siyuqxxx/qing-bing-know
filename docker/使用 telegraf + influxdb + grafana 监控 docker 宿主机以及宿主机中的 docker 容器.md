@@ -13,6 +13,8 @@
 [docker 官网 grafana/grafana 容器介绍](https://hub.docker.com/r/grafana/grafana) - hub.docker.com
 [grafana 官方 docker 安装指南](https://grafana.com/docs/installation/docker/) - grafana
 
+[grafana+influxdb 监控](https://www.iteye.com/blog/san-yun-2394369)
+
 # 配置
 
 ```sh
