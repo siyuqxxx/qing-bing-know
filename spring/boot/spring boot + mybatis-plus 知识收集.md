@@ -1,4 +1,4 @@
-# mybatis-plus 知识收集
+# spring boot + mybatis-plus 知识收集
 
 [TOC]
 
