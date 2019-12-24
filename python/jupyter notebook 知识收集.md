@@ -4,7 +4,7 @@
 
 # 入门开概述
 
-[jupyter notebook 可以做哪些事情？]( https://www.zhihu.com/question/46309360/answer/254638807?utm_source=wechat_session&utm_medium=social )
+[jupyter notebook 可以做哪些事情？](https://www.zhihu.com/question/46309360/answer/254638807?utm_source=wechat_session&utm_medium=social)
 
 
 
