@@ -31,6 +31,12 @@
 
 [Springboot（二十）启动时数据库初始化](https://blog.csdn.net/u012326462/article/details/82080812)
 
+[Spring Boot初始化数据库和导入数据](https://www.jianshu.com/p/743894b9e2fe?utm_campaign=maleskine&utm_content=note&utm_medium=seo_notes&utm_source=recommendation)
+
+> 这篇文章讲了，需要使用 jdbc starter
+>
+> 实际上，我们使用了 mybatis plus 的依赖，因此，不再需要引入 jdbc starter
+
 [SpringBoot配置属性之DataSource](https://blog.csdn.net/wulex/article/details/78318811)
 
 > 详细介绍了数据库配置可以用到的各种属性
