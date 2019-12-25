@@ -6,6 +6,8 @@
 
 [mybatis-plus的使用 ------ 进阶](https://www.jianshu.com/p/a4d5d310daf8)
 
+> Active Record(活动记录)，是一种领域模型模式，特点是一个模型类对应关系型数据库中的一个表，而模型类的一个实例对应表中的一行记录。
+
 # pom.xml 配置
 
 [快速开始](https://mp.baomidou.com/guide/quick-start.html) - 官网
@@ -24,6 +26,28 @@
     <version>3.2.0</version>
 </dependency>
 ```
+
+# application.yml 配置
+
+[Springboot（二十）启动时数据库初始化](https://blog.csdn.net/u012326462/article/details/82080812)
+
+[SpringBoot配置属性之DataSource](https://blog.csdn.net/wulex/article/details/78318811)
+
+> 详细介绍了数据库配置可以用到的各种属性
+
+```yml
+spring:
+  datasource:
+    url: jdbc:mysql://123.206.228.200:3306/test
+    username: shijunjie
+    password: '******'
+    driver-class-name: com.mysql.jdbc.Driver
+    schema: classpath:schema.sql
+    data: classpath:data.sql
+    initialization-mode: always
+```
+
+
 
 # 代码生成器
 
